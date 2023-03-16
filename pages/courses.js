@@ -10,12 +10,32 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
+import RNFS from 'react-native-fs';
+
 import Articles from './articles'
+import {Platform} from 'react-native';
+
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
 export default (props): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   const courses = ['从0到1', 'AB测试']
+
+  const readDir = () => {
+    let rnfsPath = Platform.OS === 'ios' ? RNFS.LibraryDirectoryPath : RNFS.ExternalDirectoryPath;
+    const path = rnfsPath + '/test_1.txt';
+    //write the file
+    RNFS.writeFile(path, "test", 'utf8')
+      .then((success) => {
+        console.log('write success')
+      })
+      .catch((err) => {
+        console.log(err)     
+      })
+  }
+
+  readDir()
+
   return (
     <View style={styles.sectionContainer}>
       <Text
