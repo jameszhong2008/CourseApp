@@ -11,7 +11,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
-export default (props): Node => {
+export default (props) => {
   const isDarkMode = useColorScheme() === 'dark';
   const articles = ['第一课', '第二课']
   return (

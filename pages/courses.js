@@ -17,17 +17,19 @@ import {Platform} from 'react-native';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
-export default (props): Node => {
+export default (props) => {
   const isDarkMode = useColorScheme() === 'dark';
   const courses = ['从0到1', 'AB测试']
 
   const readDir = () => {
-    let rnfsPath = Platform.OS === 'ios' ? RNFS.LibraryDirectoryPath : RNFS.ExternalDirectoryPath;
-    const path = rnfsPath + '/test_1.txt';
+    let rnfsPath = Platform.OS === 'ios' ? RNFS.LibraryDirectoryPath : RNFS.ExternalDirectoryPath;    
+    const path = rnfsPath;
     //write the file
-    RNFS.writeFile(path, "test", 'utf8')
-      .then((success) => {
-        console.log('write success')
+    RNFS.readDir(path)
+      .then((items) => {
+        items.forEach(v => {
+          console.log('files', v.name, v.isDirectory())
+        })        
       })
       .catch((err) => {
         console.log(err)     
