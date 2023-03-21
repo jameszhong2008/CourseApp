@@ -17,7 +17,7 @@ export default () => {
           <Stack.Screen name="Courses" component={Courses}/>
           <Stack.Screen name="Articles" component={Articles}/>
           <Stack.Screen name="Article" component={Article}/>
-      </Stack.Navigator>
+      </Stack.Navigator>      
     </NavigationContainer>   
   )
 }

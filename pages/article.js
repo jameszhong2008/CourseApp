@@ -3,7 +3,6 @@ import {
   useColorScheme,
   View,
   Text,
-  Button,
 } from 'react-native';
 
 import {
@@ -12,39 +11,43 @@ import {
 
 import { WebView } from 'react-native-webview';
 import { useCallback, useEffect, useState } from 'react';
-import { readFile } from '../common/file_oper';
-import SoundPlayer from 'react-native-sound-player'
+import { readAbsFile, readFile } from '../common/file_oper';
+import AudioManager from '../common/audio_oper';
+import { getAudioUrl, getSourceAudioUrl } from '../common/doc_oper';
 
+// 禁止页面缩放
+// <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 const htmlHead = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 <body>`;
 const htmlEnd = `</body>`;
 
-export default ({title}) => {
-  title = '01 _ 基础篇：学习此课程你需要了解哪些基础知识？';
+export default ({title, route}) => {
+  // 带入文章列表和当前序号
+  const {name, path, index} = route.params.article;
   const isDarkMode = useColorScheme() === 'dark';
+  title = name;
 
   const [content, setContent] = useState('');
   useEffect(() => {
-    readFile(title + ".html")
+    readAbsFile(path)
     .then(result => {      
-      setContent(htmlHead + result + htmlEnd);
+      const {source, url } = getSourceAudioUrl(result);
+      if (url) {
+        setTimeout(() => {
+          AudioManager.getInstance().playAudio(url, index);
+        });
+      }
+      setContent(htmlHead + source + htmlEnd);
     })
     .catch(err => {
       setContent("<p>打开文件失败<p/>");
     })
-    
-  }, [title])
-
-  try {
-    SoundPlayer.playUrl('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-  } catch (e) {
-      console.log(`cannot play the sound file`, e)
-  }
+  }, [])  
 
   const INJECTED_JAVASCRIPT = `(function(){
 
@@ -52,7 +55,7 @@ export default ({title}) => {
       var audios = document.getElementsByTagName('audio');
       if (audios.length) {
         console.log(audios[0]);
-        audios[0].play().then(result => {
+        /* audios[0].play().then(result => {
           if (window.ReactNativeWebView) {
             window.ReactNativeWebView.postMessage(JSON.stringify({
               name: audios[0].tagName,
@@ -66,7 +69,7 @@ export default ({title}) => {
               error: e
             }));
           } 
-        });
+        }); */
       }
     }
 
@@ -74,9 +77,7 @@ export default ({title}) => {
 
    })();`;
    
-   const btnName = 'Stop'
-  
-  return (
+   return (
     <View style={styles.sectionContainer}>
       <Text
         style={[
@@ -87,14 +88,13 @@ export default ({title}) => {
         ]}>
         {title}
       </Text>      
-      <Button title={btnName} onPress={() => {
-        SoundPlayer.stop();
-      }}/>
       <WebView
         javaScriptEnabled={true}
         startInLoadingState={true}
         injectedJavaScript={INJECTED_JAVASCRIPT}
         originWhitelist={['*']}
+        scalesPageToFit={true}
+        showsVerticalScrollIndicator={false}
         source={{html: content}}
         style={{marginTop: 20}}
         onMessage={(event) => {

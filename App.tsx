@@ -6,11 +6,15 @@
  */
 
 import React from 'react';
+import Control from './components/control';
 import Nav from './route'
 
 function App(): JSX.Element {
   return (
+    <>
     <Nav/>
+    <Control/>
+    </>
   );
 };
 
