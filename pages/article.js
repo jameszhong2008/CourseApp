@@ -12,7 +12,7 @@ import {
 import { WebView } from 'react-native-webview';
 import { useCallback, useEffect, useState } from 'react';
 import { readAbsFile, readFile } from '../common/file_oper';
-import AudioManager from '../common/audio_oper';
+import AudioManager, { loadArticle } from '../common/audio_oper';
 import { getAudioUrl, getSourceAudioUrl } from '../common/doc_oper';
 
 // 禁止页面缩放
@@ -28,21 +28,19 @@ const htmlEnd = `</body>`;
 
 export default ({title, route}) => {
   // 带入文章列表和当前序号
-  const {name, path, index} = route.params.article;
+  const {article, index} = route.params;
   const isDarkMode = useColorScheme() === 'dark';
-  title = name;
+  title = article.name;
 
   const [content, setContent] = useState('');
   useEffect(() => {
-    readAbsFile(path)
-    .then(result => {      
-      const {source, url } = getSourceAudioUrl(result);
-      if (url) {
+    loadArticle(article, index).then(result => {      
+      if (result.url) {
         setTimeout(() => {
-          AudioManager.getInstance().playAudio(url, index);
+          AudioManager.getInstance().playAudio(article.name, result.url, index);
         });
       }
-      setContent(htmlHead + source + htmlEnd);
+      setContent(htmlHead + result.source + htmlEnd);
     })
     .catch(err => {
       setContent("<p>打开文件失败<p/>");

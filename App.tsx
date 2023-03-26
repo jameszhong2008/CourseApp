@@ -7,15 +7,15 @@
 
 import React from 'react';
 import Control from './components/control';
-import Nav from './route'
+import Nav from './route';
 
 function App(): JSX.Element {
   return (
     <>
-    <Nav/>
-    <Control/>
+      <Nav />
+      <Control />
     </>
   );
-};
+}
 
 export default App;

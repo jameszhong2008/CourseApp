@@ -10,8 +10,37 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-
+  
+  // [self copySupportFiles];
+  
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (void)copySupportFiles
+{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                       NSUserDomainMask, YES);
+  if ([paths count] <= 0){
+    return;
+  }
+  NSLog(@"path_doctumnet %@", [paths objectAtIndex:0]);
+  NSString *_documentsDir = [paths objectAtIndex:0];
+  NSFileManager *fm = [NSFileManager defaultManager];
+  NSArray* localDocuments = [fm contentsOfDirectoryAtPath:_documentsDir error:nil];
+  NSArray * _demoFiles = [NSArray arrayWithObjects:@"", nil];
+  for(NSString *demoFile in _demoFiles){
+      NSURL *modelURL = [[NSBundle mainBundle] URLForResource:[demoFile stringByDeletingPathExtension] withExtension:[demoFile pathExtension]];
+      NSLog(@"fm %@", modelURL.path);
+      if([fm fileExistsAtPath:modelURL.path]){
+        NSURL *toURL = [NSURL fileURLWithPath:[_documentsDir stringByAppendingPathComponent:demoFile]];
+        [fm copyItemAtURL:modelURL toURL:toURL error:nil];
+          
+        NSLog(@"copy success: %@ ", demoFile);
+      }
+      else {
+        NSLog(@"copy failed: %@ ", demoFile);
+      }
+  }
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

@@ -15,7 +15,7 @@ import Articles from './articles';
 import {Platform} from 'react-native';
 import {useEffect, useState} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
-import { getAppDataPath } from '../common/file_oper';
+import {getAppDataPath, sortByTime} from '../common/file_oper';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -26,6 +26,7 @@ export type FileInfo = {
   name: string; // The name of the item
   path: string; // The absolute path to the item
   size: number; // Size in bytes
+  is_file?: boolean;
 };
 
 export default (props: {
@@ -35,15 +36,22 @@ export default (props: {
   const isDarkMode = useColorScheme() === 'dark';
   const [courses, setCourses] = useState<FileInfo[]>([]);
 
-  const readDir = () => {    
-    //write the file
+  const readDir = () => {
+    /* RNFS.writeFile(
+      getAppDataPath() + '/' + 'test3.txt',
+      getAppDataPath(),
+      'utf8',
+    ); */
+    console.log('rootpath', getAppDataPath());
     RNFS.readDir(getAppDataPath())
       .then(items => {
+        items.sort(sortByTime);
         const lst: FileInfo[] = [];
         items.forEach(v => {
           if (v.isDirectory()) {
-            lst.push(v);
+            lst.push({...v, is_file: v.isFile()});
           }
+          console.log('courses', v.name);
         });
         // console.log('courses', lst);
         setCourses(lst);
@@ -66,18 +74,35 @@ export default (props: {
             color: isDarkMode ? Colors.white : Colors.black,
           },
         ]}>
-        {"全部课程"}
+        {'全部课程'}
       </Text>
       <ScrollView>
-      {courses.map(v => (
-        <TouchableOpacity
-          key={v.name}
-          onPress={() => {
-            props.navigation.navigate('Articles', {course: {name:v.name, path: v.path, /* ctime: v.ctime, mtime: v.mtime, */ size: v.size}});
-          }}>
-          <Text>{v.name}</Text>
-        </TouchableOpacity>
-      ))}
+        {courses.map(v => (
+          <TouchableOpacity
+            key={v.name}
+            onPress={() => {
+              if (v.is_file) {
+                props.navigation.navigate('Article', {
+                  article: {
+                    index: 0,
+                    name: v.name,
+                    path: v.path,
+                    /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
+                  },
+                });
+              } else {
+                props.navigation.navigate('Articles', {
+                  course: {
+                    name: v.name,
+                    path: v.path,
+                    /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
+                  },
+                });
+              }
+            }}>
+            <Text>{v.name}</Text>
+          </TouchableOpacity>
+        ))}
       </ScrollView>
     </View>
   );
