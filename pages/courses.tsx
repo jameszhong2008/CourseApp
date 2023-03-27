@@ -37,11 +37,6 @@ export default (props: {
   const [courses, setCourses] = useState<FileInfo[]>([]);
 
   const readDir = () => {
-    /* RNFS.writeFile(
-      getAppDataPath() + '/' + 'test3.txt',
-      getAppDataPath(),
-      'utf8',
-    ); */
     console.log('rootpath', getAppDataPath());
     RNFS.readDir(getAppDataPath())
       .then(items => {
@@ -50,10 +45,8 @@ export default (props: {
         items.forEach(v => {
           if (v.isDirectory()) {
             lst.push({...v, is_file: v.isFile()});
-          }
-          console.log('courses', v.name);
-        });
-        // console.log('courses', lst);
+          }          
+        });        
         setCourses(lst);
       })
       .catch(err => {
@@ -99,7 +92,7 @@ export default (props: {
                   },
                 });
               }
-            }}>
+            }} style={{paddingVertical: 2}}>
             <Text>{v.name}</Text>
           </TouchableOpacity>
         ))}
@@ -116,6 +109,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+    paddingVertical: 8,
   },
   sectionDescription: {
     marginTop: 8,

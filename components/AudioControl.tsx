@@ -1,7 +1,7 @@
-import {StyleSheet, Button, ScrollView, View, Text} from 'react-native';
+import {StyleSheet, Button, useColorScheme, View, Text, TouchableOpacity } from 'react-native';
 import {uiState} from '../state/ui-state';
 import {useHookstate} from '@hookstate/core';
-import AudioManager, {loadArticle} from '../common/audio_oper';
+import AudioManager, {loadArticle} from '../common/article_oper';
 import {getPlayBtnTitle} from './control';
 import Slider from '@react-native-community/slider';
 import {useEffect, useState} from 'react';
@@ -15,11 +15,10 @@ const secToTime = (value: number) => {
 };
 
 export default () => {
+  const isDarkMode = useColorScheme() === 'dark';
   const state = useHookstate(uiState);
-  const [info, setInfo] = useState<{currentTime: number; duration: number}>({
-    currentTime: 0,
-    duration: 0,
-  });
+  const [duration, setDuration] = useState(0);
+  const [position, setPosition] = useState(0);
   const prevArticle = () => {
     let current = state.audio.index.value;
     let index = current - 1;
@@ -47,40 +46,49 @@ export default () => {
   };
 
   useEffect(() => {
+    setTimeout(async () => {
+      setDuration(await AudioManager.getInstance().getDuration());
+      setPosition(await AudioManager.getInstance().getPosition());
+    }, 0)    
     let timer = setInterval(async () => {
-      const info = await AudioManager.getInstance().getInfo();
-      setInfo(info);
-      console.log('info', info);
+      setPosition(await AudioManager.getInstance().getPosition());      
     }, 1000);
     return () => {
       clearInterval(timer);
     };
   }, []);
 
+  const minimumControl = () => {
+    state.control.module.set('base');
+  }
+  
   return (
     <View style={styles.sectionContainer}>
-      <Text style={styles.text}>{state.audio.title.value}</Text>
+      <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{state.audio.title.value}</Text>
       <View>
-        <View>
+        <View style={{paddingVertical: 8}}>
           <Slider
-            value={info.currentTime}
-            maximumValue={info.duration || 1}
+            value={position}
+            maximumValue={duration || 1}
             onValueChange={onValueChange}
             onSlidingComplete={onSlidingComplete}
           />
           <View style={styles.horizonFlex}>
-            <Text style={styles.text}>{secToTime(info.currentTime)}</Text>
-            <Text style={styles.text}>{secToTime(info.duration)}</Text>
+            <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{secToTime(position)}</Text>
+            <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{secToTime(duration)}</Text>
           </View>
         </View>
-        <View style={styles.horizonFlex}>
+        <View style={[{paddingVertical: 8}, styles.horizonFlex]}>
           <Button title={'上一个'} onPress={prevArticle}></Button>
           <Button
             title={getPlayBtnTitle(state.audio.state.value)}
             onPress={toggleAudio}></Button>
           <Button title={'下一个'} onPress={nextArticle}></Button>
         </View>
-      </View>
+      </View>      
+      <TouchableOpacity onPress={() => {minimumControl()}} style={styles.closeBtn}>
+        <Text style={{fontSize: 18}}>关闭</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -89,12 +97,23 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 8,
     paddingHorizontal: 4,
+    height: '98%',    
+    justifyContent: 'flex-end'
   },
   horizonFlex: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  text: {
+  textDark: {
+    color: '#000000',
+  },
+  textLight: {
     color: '#FFFFFF',
   },
+  closeBtn: {
+    paddingHorizontal: 4,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  }
 });

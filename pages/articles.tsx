@@ -7,7 +7,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {FileInfo} from './courses';
 import {Platform} from 'react-native';
 import RNFS from 'react-native-fs';
-import AudioManager from '../common/audio_oper';
+import AudioManager from '../common/article_oper';
 import {sortByTime} from '../common/file_oper';
 
 export default (props: {
@@ -59,7 +59,7 @@ export default (props: {
           <TouchableOpacity
             key={v.name}
             onPress={() => {
-              AudioManager.getInstance().setCourse(name, articles);
+              AudioManager.getInstance().setCourse(name, path, articles);              
               props.navigation.navigate('Article', {
                 index,
                 article: {
@@ -68,7 +68,7 @@ export default (props: {
                   /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
                 },
               });
-            }}>
+            }} style={{paddingVertical: 2}}>
             <Text>{v.name}</Text>
           </TouchableOpacity>
         ))}
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+    paddingVertical: 8,
   },
   sectionDescription: {
     marginTop: 8,

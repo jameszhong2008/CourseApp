@@ -11,9 +11,8 @@ import {
 
 import { WebView } from 'react-native-webview';
 import { useCallback, useEffect, useState } from 'react';
-import { readAbsFile, readFile } from '../common/file_oper';
-import AudioManager, { loadArticle } from '../common/audio_oper';
-import { getAudioUrl, getSourceAudioUrl } from '../common/doc_oper';
+import AudioManager, { loadArticle } from '../common/article_oper';
+
 
 // 禁止页面缩放
 // <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
