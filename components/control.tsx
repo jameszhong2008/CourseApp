@@ -1,4 +1,11 @@
-import {Button, Text, View, StyleSheet, useColorScheme, TouchableOpacity} from 'react-native';
+import {
+  Button,
+  Text,
+  View,
+  StyleSheet,
+  useColorScheme,
+  TouchableOpacity,
+} from 'react-native';
 import AudioManager from '../common/article_oper';
 
 import {useHookstate} from '@hookstate/core';
@@ -21,7 +28,7 @@ export default () => {
     AudioManager.getInstance().toggleAudio();
   };
 
-  const module = state.control.module.value
+  const module = state.control.module.value;
   const showList = () => {
     state.control.module.set(module !== 'base' ? 'base' : 'list');
   };
@@ -35,15 +42,17 @@ export default () => {
       {module === 'base' && (
         <TouchableOpacity onPress={manuAudio}>
           <View style={styles.baseList}>
-            <Text style={[styles.titleWidth, isDarkMode? styles.textLight: styles.textDark]}>{state.audio.title.value}</Text>
+            <Text style={[styles.titleWidth, styles.textDark]}>
+              {state.audio.title.value}
+            </Text>
             <Button
               title={getPlayBtnTitle(state.audio.state.value)}
               onPress={toogleAudio}></Button>
             <Button title={'列表'} onPress={showList}></Button>
           </View>
         </TouchableOpacity>
-      )}      
-    </View>    
+      )}
+    </View>
   );
 };
 
@@ -51,6 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     justifyContent: 'space-between',
+    backgroundColor: '#eeeeee',
   },
   titleWidth: {
     width: '70%',

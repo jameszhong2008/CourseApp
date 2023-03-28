@@ -1,10 +1,19 @@
-import {StyleSheet, Button, useColorScheme, View, Text, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Button,
+  useColorScheme,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import {uiState} from '../state/ui-state';
 import {useHookstate} from '@hookstate/core';
 import AudioManager, {loadArticle} from '../common/article_oper';
 import {getPlayBtnTitle} from './control';
 import Slider from '@react-native-community/slider';
 import {useEffect, useState} from 'react';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import ArticleView from './ArticleView';
 
 const secToTime = (value: number) => {
   const minutes = Math.floor(value / 60);
@@ -49,9 +58,9 @@ export default () => {
     setTimeout(async () => {
       setDuration(await AudioManager.getInstance().getDuration());
       setPosition(await AudioManager.getInstance().getPosition());
-    }, 0)    
+    }, 0);
     let timer = setInterval(async () => {
-      setPosition(await AudioManager.getInstance().getPosition());      
+      setPosition(await AudioManager.getInstance().getPosition());
     }, 1000);
     return () => {
       clearInterval(timer);
@@ -60,12 +69,33 @@ export default () => {
 
   const minimumControl = () => {
     state.control.module.set('base');
-  }
-  
+  };
+
+  const [content, setContent] = useState('');
+  const onOpenArticle = () => {
+    if (content) {
+      // 设置为空
+      setContent('');
+      return;
+    }
+    let index = state.audio.index.value;
+    if (index > -1 && index < state.course.articles.value.length) {
+      loadArticle(state.course.articles.value[index], index)
+        .then(result => {
+          setContent((result as any).source);
+        })
+        .catch(err => {
+          setContent('');
+        });
+    }
+  };
+
   return (
     <View style={styles.sectionContainer}>
-      <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{state.audio.title.value}</Text>
+      <Text style={styles.textDark}>{state.audio.title.value}</Text>
+      {content && <ArticleView html={content} />}
       <View>
+        <Button title="文章" onPress={onOpenArticle}></Button>
         <View style={{paddingVertical: 8}}>
           <Slider
             value={position}
@@ -74,8 +104,8 @@ export default () => {
             onSlidingComplete={onSlidingComplete}
           />
           <View style={styles.horizonFlex}>
-            <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{secToTime(position)}</Text>
-            <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{secToTime(duration)}</Text>
+            <Text style={styles.textDark}>{secToTime(position)}</Text>
+            <Text style={styles.textDark}>{secToTime(duration)}</Text>
           </View>
         </View>
         <View style={[{paddingVertical: 8}, styles.horizonFlex]}>
@@ -85,9 +115,13 @@ export default () => {
             onPress={toggleAudio}></Button>
           <Button title={'下一个'} onPress={nextArticle}></Button>
         </View>
-      </View>      
-      <TouchableOpacity onPress={() => {minimumControl()}} style={styles.closeBtn}>
-        <Text style={{fontSize: 18}}>关闭</Text>
+      </View>
+      <TouchableOpacity
+        onPress={() => {
+          minimumControl();
+        }}
+        style={styles.closeBtn}>
+        <Text style={[{fontSize: 18}, styles.textDark]}>关闭</Text>
       </TouchableOpacity>
     </View>
   );
@@ -97,8 +131,8 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 8,
     paddingHorizontal: 4,
-    height: '98%',    
-    justifyContent: 'flex-end'
+    height: '98%',
+    justifyContent: 'flex-end',
   },
   horizonFlex: {
     flexDirection: 'row',
@@ -107,13 +141,10 @@ const styles = StyleSheet.create({
   textDark: {
     color: '#000000',
   },
-  textLight: {
-    color: '#FFFFFF',
-  },
   closeBtn: {
     paddingHorizontal: 4,
     position: 'absolute',
-    top: 0,
+    top: 40,
     right: 0,
-  }
+  },
 });

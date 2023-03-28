@@ -49,7 +49,7 @@ export default (props: {
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: Colors.black,
           },
         ]}>
         {name}
@@ -59,7 +59,7 @@ export default (props: {
           <TouchableOpacity
             key={v.name}
             onPress={() => {
-              AudioManager.getInstance().setCourse(name, path, articles);              
+              AudioManager.getInstance().setCourse(name, path, articles);
               props.navigation.navigate('Article', {
                 index,
                 article: {
@@ -68,7 +68,8 @@ export default (props: {
                   /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
                 },
               });
-            }} style={{paddingVertical: 2}}>
+            }}
+            style={{paddingVertical: 2}}>
             <Text>{v.name}</Text>
           </TouchableOpacity>
         ))}

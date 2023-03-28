@@ -4,21 +4,24 @@ import {
   ScrollView,
   View,
   Text,
-  useColorScheme
+  useColorScheme,
 } from 'react-native';
 import {uiState} from '../state/ui-state';
 import {useHookstate} from '@hookstate/core';
 import {loadArticle} from '../common/article_oper';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 export default () => {
   const isDarkMode = useColorScheme() === 'dark';
   const state = useHookstate(uiState);
   const minimumControl = () => {
     state.control.module.set('base');
-  }
+  };
   return (
-    <View style={styles.sectionContainer}>      
-      <Text style={[styles.textHead, isDarkMode? styles.textLight: styles.textDark]}>{state.course.name.value || '课程为空'}</Text>
+    <View style={styles.sectionContainer}>
+      <Text style={[styles.textHead, styles.textDark]}>
+        {state.course.name.value || '课程为空'}
+      </Text>
       <ScrollView>
         {state.course.articles.value.map((v, index) => (
           <TouchableOpacity
@@ -27,12 +30,16 @@ export default () => {
               loadArticle(v, index);
             }}
             style={{paddingVertical: 2}}>
-            <Text style={[isDarkMode? styles.textLight: styles.textDark]}>{v.name}</Text>
+            <Text style={[styles.textDark]}>{v.name}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
-      <TouchableOpacity onPress={() => {minimumControl()}} style={styles.closeBtn}>
-        <Text style={{fontSize: 18}}>关闭</Text>
+      <TouchableOpacity
+        onPress={() => {
+          minimumControl();
+        }}
+        style={styles.closeBtn}>
+        <Text style={[{fontSize: 18}, styles.textDark]}>关闭</Text>
       </TouchableOpacity>
     </View>
   );
@@ -41,7 +48,7 @@ export default () => {
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 8,
-    paddingHorizontal: 4,    
+    paddingHorizontal: 4,
     height: '98%',
   },
   textHead: {
@@ -52,13 +59,10 @@ const styles = StyleSheet.create({
   textDark: {
     color: '#000000',
   },
-  textLight: {
-    color: '#FFFFFF',
-  },
   closeBtn: {
     paddingHorizontal: 4,
     position: 'absolute',
-    top: 0,
+    top: 40,
     right: 0,
-  }  
+  },
 });

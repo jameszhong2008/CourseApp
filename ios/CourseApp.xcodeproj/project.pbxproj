@@ -10,93 +10,9 @@
 		00E356F31AD99517003FC87E /* CourseAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CourseAppTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-CourseApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-CourseApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1A89184129CB19C100074B0C /* 20 _ 揭秘 Python 协程.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917ED29CB19C100074B0C /* 20 _ 揭秘 Python 协程.html */; };
-		1A89184229CB19C100074B0C /* 39 _ Django：搭建监控平台.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917EE29CB19C100074B0C /* 39 _ Django：搭建监控平台.html */; };
-		1A89184329CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917EF29CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html */; };
-		1A89184429CB19C100074B0C /* 05 _ 深入浅出字符串.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F029CB19C100074B0C /* 05 _ 深入浅出字符串.html */; };
-		1A89184529CB19C100074B0C /* 09 _ 不可或缺的自定义函数.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F129CB19C100074B0C /* 09 _ 不可或缺的自定义函数.html */; };
-		1A89184629CB19C100074B0C /* 28 _ 如何合理利用assert？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F229CB19C100074B0C /* 28 _ 如何合理利用assert？.html */; };
-		1A89184729CB19C100074B0C /* 08 _ 异常处理：如何提高程序的稳定性？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F329CB19C100074B0C /* 08 _ 异常处理：如何提高程序的稳定性？.html */; };
-		1A89184829CB19C100074B0C /* 26 _ 活都来不及干了，还有空注意代码风格？！.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F429CB19C100074B0C /* 26 _ 活都来不及干了，还有空注意代码风格？！.html */; };
-		1A89184929CB19C100074B0C /* 31 _ pdb & cProfile：调试和性能分析的法宝.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F529CB19C100074B0C /* 31 _ pdb & cProfile：调试和性能分析的法宝.html */; };
-		1A89184A29CB19C100074B0C /* 03 _ 列表和元组，到底用哪一个？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F629CB19C100074B0C /* 03 _ 列表和元组，到底用哪一个？.html */; };
-		1A89184B29CB19C100074B0C /* 开篇词 _ 从工程的角度深入理解Python.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F729CB19C100074B0C /* 开篇词 _ 从工程的角度深入理解Python.html */; };
-		1A89184C29CB19C100074B0C /* 24 _ 带你解析 Python 垃圾回收机制.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F829CB19C100074B0C /* 24 _ 带你解析 Python 垃圾回收机制.html */; };
-		1A89184D29CB19C100074B0C /* 43 _ Q&A：聊一聊职业发展和选择.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917F929CB19C100074B0C /* 43 _ Q&A：聊一聊职业发展和选择.html */; };
-		1A89184E29CB19C100074B0C /* 42 _ 细数技术研发的注意事项.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917FA29CB19C100074B0C /* 42 _ 细数技术研发的注意事项.html */; };
-		1A89184F29CB19C100074B0C /* 40 _ 总结：Python中的数据结构与算法全景.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917FB29CB19C100074B0C /* 40 _ 总结：Python中的数据结构与算法全景.html */; };
-		1A89185029CB19C100074B0C /* 30 _ 真的有必要写单元测试吗？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917FC29CB19C100074B0C /* 30 _ 真的有必要写单元测试吗？.html */; };
-		1A89185129CB19C100074B0C /* 07 _ 修炼基本功：条件与循环.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917FD29CB19C100074B0C /* 07 _ 修炼基本功：条件与循环.html */; };
-		1A89185229CB19C100074B0C /* 36 _ Pandas & Numpy：策略与回测系统.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917FE29CB19C100074B0C /* 36 _ Pandas & Numpy：策略与回测系统.html */; };
-		1A89185329CB19C100074B0C /* 38 _ MySQL：日志和数据存储系统.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A8917FF29CB19C100074B0C /* 38 _ MySQL：日志和数据存储系统.html */; };
-		1A89185429CB19C100074B0C /* 14 _ 答疑（一）：列表和元组的内部实现是怎样的？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180029CB19C100074B0C /* 14 _ 答疑（一）：列表和元组的内部实现是怎样的？.html */; };
-		1A89185529CB19C100074B0C /* 13 _ 搭建积木：Python 模块化.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180129CB19C100074B0C /* 13 _ 搭建积木：Python 模块化.html */; };
-		1A89185629CB19C100074B0C /* 06 _ Python “黑箱”：输入与输出.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180229CB19C100074B0C /* 06 _ Python “黑箱”：输入与输出.html */; };
-		1A89185729CB19C100074B0C /* 21 _ Python并发编程之Futures.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180329CB19C100074B0C /* 21 _ Python并发编程之Futures.html */; };
-		1A89185829CB19C100074B0C /* 29 _ 巧用上下文管理器和With语句精简代码.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180429CB19C100074B0C /* 29 _ 巧用上下文管理器和With语句精简代码.html */; };
-		1A89185929CB19C100074B0C /* 10 _ 简约不简单的匿名函数.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180529CB19C100074B0C /* 10 _ 简约不简单的匿名函数.html */; };
-		1A89185A29CB19C100074B0C /* 27 _ 学会合理分解代码，提高代码可读性.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180629CB19C100074B0C /* 27 _ 学会合理分解代码，提高代码可读性.html */; };
-		1A89185B29CB19C100074B0C /* 33 _ 带你初探量化世界.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180729CB19C100074B0C /* 33 _ 带你初探量化世界.html */; };
-		1A89185C29CB19C100074B0C /* 结束语 _ 技术之外的几点成长建议.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180829CB19C100074B0C /* 结束语 _ 技术之外的几点成长建议.html */; };
-		1A89185D29CB19C100074B0C /* 23 _ 你真的懂Python GIL（全局解释器锁）吗？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180929CB19C100074B0C /* 23 _ 你真的懂Python GIL（全局解释器锁）吗？.html */; };
-		1A89185E29CB19C100074B0C /* 34 _ RESTful & Socket：搭建交易执行层核心.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180A29CB19C100074B0C /* 34 _ RESTful & Socket：搭建交易执行层核心.html */; };
-		1A89185F29CB19C100074B0C /* 02 _ Jupyter Notebook为什么是现代Python的必学技术？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180B29CB19C100074B0C /* 02 _ Jupyter Notebook为什么是现代Python的必学技术？.html */; };
-		1A89186029CB19C100074B0C /* 32 _ 答疑（三）：如何选择合适的异常处理方式？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180C29CB19C100074B0C /* 32 _ 答疑（三）：如何选择合适的异常处理方式？.html */; };
-		1A89186129CB19C100074B0C /* 加餐 _ 带你上手SWIG：一份清晰好用的SWIG编程实践指南.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180D29CB19C100074B0C /* 加餐 _ 带你上手SWIG：一份清晰好用的SWIG编程实践指南.html */; };
-		1A89186229CB19C100074B0C /* 18 _ metaclass，是潘多拉魔盒还是阿拉丁神灯？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180E29CB19C100074B0C /* 18 _ metaclass，是潘多拉魔盒还是阿拉丁神灯？.html */; };
-		1A89186329CB19C100074B0C /* 04 _ 字典、集合，你真的了解吗？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89180F29CB19C100074B0C /* 04 _ 字典、集合，你真的了解吗？.html */; };
-		1A89186429CB19C100074B0C /* 15 _ Python对象的比较、拷贝.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181029CB19C100074B0C /* 15 _ Python对象的比较、拷贝.html */; };
-		1A89186529CB19C100074B0C /* 19 _ 深入理解迭代器和生成器.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181129CB19C100074B0C /* 19 _ 深入理解迭代器和生成器.html */; };
-		1A89186629CB19C100074B0C /* 12 _ 面向对象（下）：如何实现一个搜索引擎？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181229CB19C100074B0C /* 12 _ 面向对象（下）：如何实现一个搜索引擎？.html */; };
-		1A89186729CB19C100074B0C /* 11 _ 面向对象（上）：从生活中的类比说起.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181329CB19C100074B0C /* 11 _ 面向对象（上）：从生活中的类比说起.html */; };
-		1A89186829CB19C100074B0C /* 22 _ 并发编程之Asyncio.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181429CB19C100074B0C /* 22 _ 并发编程之Asyncio.html */; };
-		1A89186929CB19C100074B0C /* 结课测试 _ 关于Python的这些知识，你都掌握了吗？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181529CB19C100074B0C /* 结课测试 _ 关于Python的这些知识，你都掌握了吗？.html */; };
-		1A89186A29CB19C100074B0C /* 17 _ 强大的装饰器.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181629CB19C100074B0C /* 17 _ 强大的装饰器.html */; };
-		1A89186B29CB19C100074B0C /* 41 _ 硅谷一线互联网公司的工作体验.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181729CB19C100074B0C /* 41 _ 硅谷一线互联网公司的工作体验.html */; };
-		1A89186C29CB19C100074B0C /* 16 _ 值传递，引用传递or其他，Python里参数是如何传递的？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181829CB19C100074B0C /* 16 _ 值传递，引用传递or其他，Python里参数是如何传递的？.html */; };
-		1A89186D29CB19C100074B0C /* 35 _ RESTful & Socket：行情数据对接和抓取.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181929CB19C100074B0C /* 35 _ RESTful & Socket：行情数据对接和抓取.html */; };
-		1A89186E29CB19C100074B0C /* 01 _ 如何逐步突破，成为Python高手？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181A29CB19C100074B0C /* 01 _ 如何逐步突破，成为Python高手？.html */; };
-		1A89186F29CB19C100074B0C /* 25 _ 答疑（二）：GIL与多线程是什么关系呢？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181B29CB19C100074B0C /* 25 _ 答疑（二）：GIL与多线程是什么关系呢？.html */; };
-		1A89187029CB19C100074B0C /* 23｜热更新：如何搭建一个热更新平台？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181D29CB19C100074B0C /* 23｜热更新：如何搭建一个热更新平台？.html */; };
-		1A89187129CB19C100074B0C /* 22｜自定义组件：如何满足业务的个性化需求？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181E29CB19C100074B0C /* 22｜自定义组件：如何满足业务的个性化需求？.html */; };
-		1A89187229CB19C100074B0C /* 02｜Component：搭建静态页面的正确思路是什么？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89181F29CB19C100074B0C /* 02｜Component：搭建静态页面的正确思路是什么？.html */; };
-		1A89187329CB19C100074B0C /* 12｜页面实战：如何搭建一个电商首页？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182029CB19C100074B0C /* 12｜页面实战：如何搭建一个电商首页？.html */; };
-		1A89187429CB19C100074B0C /* 27｜跨端的机遇：小程序、Flutter和React Native原理对比.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182129CB19C100074B0C /* 27｜跨端的机遇：小程序、Flutter和React Native原理对比.html */; };
-		1A89187529CB19C100074B0C /* 直播加餐｜七年，我的跨端实践和探索.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182229CB19C100074B0C /* 直播加餐｜七年，我的跨端实践和探索.html */; };
-		1A89187629CB19C100074B0C /* 09｜Fast Refresh：提高 UI 调试效率神器.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182329CB19C100074B0C /* 09｜Fast Refresh：提高 UI 调试效率神器.html */; };
-		1A89187729CB19C100074B0C /* 13｜生态：React Native Awesome.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182429CB19C100074B0C /* 13｜生态：React Native Awesome.html */; };
-		1A89187829CB19C100074B0C /* 32｜Fabric：新渲染器的演进之路.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182529CB19C100074B0C /* 32｜Fabric：新渲染器的演进之路.html */; };
-		1A89187929CB19C100074B0C /* 28｜追本溯源：从第一版 React Native 开始学会读懂源码.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182629CB19C100074B0C /* 28｜追本溯源：从第一版 React Native 开始学会读懂源码.html */; };
-		1A89187A29CB19C100074B0C /* 15｜Gesture（上）：如何实现一个拖拽动效？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182729CB19C100074B0C /* 15｜Gesture（上）：如何实现一个拖拽动效？.html */; };
-		1A89187B29CB19C100074B0C /* 开篇词｜为什么要选择 React Native 做你的跨端方案？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182829CB19C100074B0C /* 开篇词｜为什么要选择 React Native 做你的跨端方案？.html */; };
-		1A89187C29CB19C100074B0C /* 16｜Gesture（中）：如何解决单视图多手势的冲突问题？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182929CB19C100074B0C /* 16｜Gesture（中）：如何解决单视图多手势的冲突问题？.html */; };
-		1A89187D29CB19C100074B0C /* 08｜List：如何实现高性能的无限列表？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182A29CB19C100074B0C /* 08｜List：如何实现高性能的无限列表？.html */; };
-		1A89187E29CB19C100074B0C /* 05｜Image：选择适合你的图片加载方式.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182B29CB19C100074B0C /* 05｜Image：选择适合你的图片加载方式.html */; };
-		1A89187F29CB19C100074B0C /* 21｜混合应用：如何从零开始集成 React Native？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182C29CB19C100074B0C /* 21｜混合应用：如何从零开始集成 React Native？.html */; };
-		1A89188029CB19C100074B0C /* 01｜学习 React Native，你需要掌握哪些知识？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182D29CB19C100074B0C /* 01｜学习 React Native，你需要掌握哪些知识？.html */; };
-		1A89188129CB19C100074B0C /* 总结与展望｜新架构探索之旅，马上开始.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182E29CB19C100074B0C /* 总结与展望｜新架构探索之旅，马上开始.html */; };
-		1A89188229CB19C100074B0C /* 14｜Reanimated：如何让动画变得更流畅？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89182F29CB19C100074B0C /* 14｜Reanimated：如何让动画变得更流畅？.html */; };
-		1A89188329CB19C100074B0C /* 06｜Pressable：如何实现一个体验好的点按组件？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183029CB19C100074B0C /* 06｜Pressable：如何实现一个体验好的点按组件？.html */; };
-		1A89188429CB19C100074B0C /* 18｜Navigation：页面之间怎么跳转？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183129CB19C100074B0C /* 18｜Navigation：页面之间怎么跳转？.html */; };
-		1A89188529CB19C100074B0C /* 24｜拆包：Metro 拆包的工作原理是什么？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183229CB19C100074B0C /* 24｜拆包：Metro 拆包的工作原理是什么？.html */; };
-		1A89188629CB19C100074B0C /* 29｜弄清现状：新架构预览版究竟长什么样？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183329CB19C100074B0C /* 29｜弄清现状：新架构预览版究竟长什么样？.html */; };
-		1A89188729CB19C100074B0C /* 26｜客户端优化：如何把性能提升到极致？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183429CB19C100074B0C /* 26｜客户端优化：如何把性能提升到极致？.html */; };
-		1A89188829CB19C100074B0C /* 30｜JavaScript 引擎：双向通讯底层原理是什么？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183529CB19C100074B0C /* 30｜JavaScript 引擎：双向通讯底层原理是什么？.html */; };
-		1A89188929CB19C100074B0C /* 19｜Redux：大型应用应该如何管理状态？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183629CB19C100074B0C /* 19｜Redux：大型应用应该如何管理状态？.html */; };
-		1A89188A29CB19C100074B0C /* 04｜State：如何让页面“动”起来？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183729CB19C100074B0C /* 04｜State：如何让页面“动”起来？.html */; };
-		1A89188B29CB19C100074B0C /* 11｜组件实战：如何实现瀑布流？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183829CB19C100074B0C /* 11｜组件实战：如何实现瀑布流？.html */; };
-		1A89188C29CB19C100074B0C /* 07｜TextInput：如何实现一个体验好的输入框？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183929CB19C100074B0C /* 07｜TextInput：如何实现一个体验好的输入框？.html */; };
-		1A89188D29CB19C100074B0C /* 阶段测试｜React Native的这些核心知识，你都掌握了吗？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183A29CB19C100074B0C /* 阶段测试｜React Native的这些核心知识，你都掌握了吗？.html */; };
-		1A89188E29CB19C100074B0C /* 03｜Style：关于样式你需要知道的三件事.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183B29CB19C100074B0C /* 03｜Style：关于样式你需要知道的三件事.html */; };
-		1A89188F29CB19C100074B0C /* 10｜Debug：解决 BUG 思路有哪些？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183C29CB19C100074B0C /* 10｜Debug：解决 BUG 思路有哪些？.html */; };
-		1A89189029CB19C100074B0C /* 17｜Gesture（下）：如何解决多视图多手势的冲突问题？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183D29CB19C100074B0C /* 17｜Gesture（下）：如何解决多视图多手势的冲突问题？.html */; };
-		1A89189129CB19C100074B0C /* 25｜性能优化：如何设计一个合适的性能优化方案？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183E29CB19C100074B0C /* 25｜性能优化：如何设计一个合适的性能优化方案？.html */; };
-		1A89189229CB19C100074B0C /* 20｜Sentry：线上错误与性能监控怎么处理？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89183F29CB19C100074B0C /* 20｜Sentry：线上错误与性能监控怎么处理？.html */; };
-		1A89189329CB19C100074B0C /* 31｜多线程：RN底层是如何保障交互体验的？.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A89184029CB19C100074B0C /* 31｜多线程：RN底层是如何保障交互体验的？.html */; };
+		1A3B6E5E29D1B29C003E38DB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B6E5D29D1B29C003E38DB /* File.swift */; };
 		7699B88040F8A987B510C191 /* libPods-CourseApp-CourseAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-CourseApp-CourseAppTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +36,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CourseApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CourseApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-CourseApp-CourseAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CourseApp-CourseAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A3B6E5C29D1B29B003E38DB /* CourseApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CourseApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		1A3B6E5D29D1B29C003E38DB /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = CourseApp/File.swift; sourceTree = "<group>"; };
 		1A8917ED29CB19C100074B0C /* 20 _ 揭秘 Python 协程.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "20 _ 揭秘 Python 协程.html"; sourceTree = "<group>"; };
 		1A8917EE29CB19C100074B0C /* 39 _ Django：搭建监控平台.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "39 _ Django：搭建监控平台.html"; sourceTree = "<group>"; };
 		1A8917EF29CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "37 _ Kafka & ZMQ：自动化交易流水线.html"; sourceTree = "<group>"; };
@@ -255,10 +173,12 @@
 				1A8917EB29CB197700074B0C /* Supporting Files */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
+				1A3B6E5D29D1B29C003E38DB /* File.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				1A3B6E5C29D1B29B003E38DB /* CourseApp-Bridging-Header.h */,
 			);
 			name = CourseApp;
 			sourceTree = "<group>";
@@ -482,7 +402,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -517,91 +437,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A89189029CB19C100074B0C /* 17｜Gesture（下）：如何解决多视图多手势的冲突问题？.html in Resources */,
-				1A89184229CB19C100074B0C /* 39 _ Django：搭建监控平台.html in Resources */,
-				1A89186829CB19C100074B0C /* 22 _ 并发编程之Asyncio.html in Resources */,
-				1A89184D29CB19C100074B0C /* 43 _ Q&A：聊一聊职业发展和选择.html in Resources */,
-				1A89188329CB19C100074B0C /* 06｜Pressable：如何实现一个体验好的点按组件？.html in Resources */,
-				1A89188529CB19C100074B0C /* 24｜拆包：Metro 拆包的工作原理是什么？.html in Resources */,
-				1A89186229CB19C100074B0C /* 18 _ metaclass，是潘多拉魔盒还是阿拉丁神灯？.html in Resources */,
-				1A89185229CB19C100074B0C /* 36 _ Pandas & Numpy：策略与回测系统.html in Resources */,
-				1A89187E29CB19C100074B0C /* 05｜Image：选择适合你的图片加载方式.html in Resources */,
-				1A89184329CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html in Resources */,
-				1A89186B29CB19C100074B0C /* 41 _ 硅谷一线互联网公司的工作体验.html in Resources */,
-				1A89186029CB19C100074B0C /* 32 _ 答疑（三）：如何选择合适的异常处理方式？.html in Resources */,
-				1A89186129CB19C100074B0C /* 加餐 _ 带你上手SWIG：一份清晰好用的SWIG编程实践指南.html in Resources */,
-				1A89188729CB19C100074B0C /* 26｜客户端优化：如何把性能提升到极致？.html in Resources */,
-				1A89184629CB19C100074B0C /* 28 _ 如何合理利用assert？.html in Resources */,
-				1A89186E29CB19C100074B0C /* 01 _ 如何逐步突破，成为Python高手？.html in Resources */,
-				1A89185A29CB19C100074B0C /* 27 _ 学会合理分解代码，提高代码可读性.html in Resources */,
-				1A89184429CB19C100074B0C /* 05 _ 深入浅出字符串.html in Resources */,
-				1A89187829CB19C100074B0C /* 32｜Fabric：新渲染器的演进之路.html in Resources */,
-				1A89185829CB19C100074B0C /* 29 _ 巧用上下文管理器和With语句精简代码.html in Resources */,
-				1A89186A29CB19C100074B0C /* 17 _ 强大的装饰器.html in Resources */,
-				1A89188229CB19C100074B0C /* 14｜Reanimated：如何让动画变得更流畅？.html in Resources */,
-				1A89187A29CB19C100074B0C /* 15｜Gesture（上）：如何实现一个拖拽动效？.html in Resources */,
-				1A89187329CB19C100074B0C /* 12｜页面实战：如何搭建一个电商首页？.html in Resources */,
-				1A89185929CB19C100074B0C /* 10 _ 简约不简单的匿名函数.html in Resources */,
-				1A89188429CB19C100074B0C /* 18｜Navigation：页面之间怎么跳转？.html in Resources */,
-				1A89185129CB19C100074B0C /* 07 _ 修炼基本功：条件与循环.html in Resources */,
-				1A89188F29CB19C100074B0C /* 10｜Debug：解决 BUG 思路有哪些？.html in Resources */,
-				1A89185729CB19C100074B0C /* 21 _ Python并发编程之Futures.html in Resources */,
-				1A89184529CB19C100074B0C /* 09 _ 不可或缺的自定义函数.html in Resources */,
-				1A89187429CB19C100074B0C /* 27｜跨端的机遇：小程序、Flutter和React Native原理对比.html in Resources */,
-				1A89185B29CB19C100074B0C /* 33 _ 带你初探量化世界.html in Resources */,
-				1A89186C29CB19C100074B0C /* 16 _ 值传递，引用传递or其他，Python里参数是如何传递的？.html in Resources */,
-				1A89184F29CB19C100074B0C /* 40 _ 总结：Python中的数据结构与算法全景.html in Resources */,
-				1A89187F29CB19C100074B0C /* 21｜混合应用：如何从零开始集成 React Native？.html in Resources */,
-				1A89189229CB19C100074B0C /* 20｜Sentry：线上错误与性能监控怎么处理？.html in Resources */,
-				1A89186729CB19C100074B0C /* 11 _ 面向对象（上）：从生活中的类比说起.html in Resources */,
-				1A89184E29CB19C100074B0C /* 42 _ 细数技术研发的注意事项.html in Resources */,
-				1A89187929CB19C100074B0C /* 28｜追本溯源：从第一版 React Native 开始学会读懂源码.html in Resources */,
-				1A89187029CB19C100074B0C /* 23｜热更新：如何搭建一个热更新平台？.html in Resources */,
-				1A89186429CB19C100074B0C /* 15 _ Python对象的比较、拷贝.html in Resources */,
-				1A89188E29CB19C100074B0C /* 03｜Style：关于样式你需要知道的三件事.html in Resources */,
-				1A89188029CB19C100074B0C /* 01｜学习 React Native，你需要掌握哪些知识？.html in Resources */,
-				1A89189329CB19C100074B0C /* 31｜多线程：RN底层是如何保障交互体验的？.html in Resources */,
-				1A89186929CB19C100074B0C /* 结课测试 _ 关于Python的这些知识，你都掌握了吗？.html in Resources */,
-				1A89188B29CB19C100074B0C /* 11｜组件实战：如何实现瀑布流？.html in Resources */,
-				1A89184829CB19C100074B0C /* 26 _ 活都来不及干了，还有空注意代码风格？！.html in Resources */,
-				1A89186629CB19C100074B0C /* 12 _ 面向对象（下）：如何实现一个搜索引擎？.html in Resources */,
-				1A89185329CB19C100074B0C /* 38 _ MySQL：日志和数据存储系统.html in Resources */,
-				1A89185429CB19C100074B0C /* 14 _ 答疑（一）：列表和元组的内部实现是怎样的？.html in Resources */,
-				1A89188929CB19C100074B0C /* 19｜Redux：大型应用应该如何管理状态？.html in Resources */,
-				1A89188C29CB19C100074B0C /* 07｜TextInput：如何实现一个体验好的输入框？.html in Resources */,
-				1A89187C29CB19C100074B0C /* 16｜Gesture（中）：如何解决单视图多手势的冲突问题？.html in Resources */,
-				1A89187629CB19C100074B0C /* 09｜Fast Refresh：提高 UI 调试效率神器.html in Resources */,
-				1A89188629CB19C100074B0C /* 29｜弄清现状：新架构预览版究竟长什么样？.html in Resources */,
-				1A89187129CB19C100074B0C /* 22｜自定义组件：如何满足业务的个性化需求？.html in Resources */,
-				1A89186329CB19C100074B0C /* 04 _ 字典、集合，你真的了解吗？.html in Resources */,
-				1A89185629CB19C100074B0C /* 06 _ Python “黑箱”：输入与输出.html in Resources */,
-				1A89186529CB19C100074B0C /* 19 _ 深入理解迭代器和生成器.html in Resources */,
-				1A89184A29CB19C100074B0C /* 03 _ 列表和元组，到底用哪一个？.html in Resources */,
-				1A89187D29CB19C100074B0C /* 08｜List：如何实现高性能的无限列表？.html in Resources */,
-				1A89185029CB19C100074B0C /* 30 _ 真的有必要写单元测试吗？.html in Resources */,
-				1A89185529CB19C100074B0C /* 13 _ 搭建积木：Python 模块化.html in Resources */,
-				1A89188D29CB19C100074B0C /* 阶段测试｜React Native的这些核心知识，你都掌握了吗？.html in Resources */,
-				1A89187229CB19C100074B0C /* 02｜Component：搭建静态页面的正确思路是什么？.html in Resources */,
-				1A89186D29CB19C100074B0C /* 35 _ RESTful & Socket：行情数据对接和抓取.html in Resources */,
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				1A89185C29CB19C100074B0C /* 结束语 _ 技术之外的几点成长建议.html in Resources */,
-				1A89184129CB19C100074B0C /* 20 _ 揭秘 Python 协程.html in Resources */,
-				1A89186F29CB19C100074B0C /* 25 _ 答疑（二）：GIL与多线程是什么关系呢？.html in Resources */,
-				1A89188A29CB19C100074B0C /* 04｜State：如何让页面“动”起来？.html in Resources */,
-				1A89185F29CB19C100074B0C /* 02 _ Jupyter Notebook为什么是现代Python的必学技术？.html in Resources */,
-				1A89185E29CB19C100074B0C /* 34 _ RESTful & Socket：搭建交易执行层核心.html in Resources */,
-				1A89187B29CB19C100074B0C /* 开篇词｜为什么要选择 React Native 做你的跨端方案？.html in Resources */,
-				1A89184929CB19C100074B0C /* 31 _ pdb & cProfile：调试和性能分析的法宝.html in Resources */,
-				1A89188129CB19C100074B0C /* 总结与展望｜新架构探索之旅，马上开始.html in Resources */,
-				1A89189129CB19C100074B0C /* 25｜性能优化：如何设计一个合适的性能优化方案？.html in Resources */,
-				1A89188829CB19C100074B0C /* 30｜JavaScript 引擎：双向通讯底层原理是什么？.html in Resources */,
-				1A89184C29CB19C100074B0C /* 24 _ 带你解析 Python 垃圾回收机制.html in Resources */,
-				1A89184B29CB19C100074B0C /* 开篇词 _ 从工程的角度深入理解Python.html in Resources */,
-				1A89187529CB19C100074B0C /* 直播加餐｜七年，我的跨端实践和探索.html in Resources */,
-				1A89187729CB19C100074B0C /* 13｜生态：React Native Awesome.html in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				1A89185D29CB19C100074B0C /* 23 _ 你真的懂Python GIL（全局解释器锁）吗？.html in Resources */,
-				1A89184729CB19C100074B0C /* 08 _ 异常处理：如何提高程序的稳定性？.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				1A3B6E5E29D1B29C003E38DB /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-CourseApp-CourseAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -817,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-CourseApp-CourseAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CourseAppTests/Info.plist;
@@ -860,6 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CourseApp;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.belighten.CourseApp;
 				PRODUCT_NAME = CourseApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "CourseApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -888,6 +727,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CourseApp;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.belighten.CourseApp;
 				PRODUCT_NAME = CourseApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "CourseApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

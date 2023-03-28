@@ -9,14 +9,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const loadArticle = (
   article: FileInfo,
   index: number,
+  onlyLoad: boolean = false,
   seek?: number,
 ) => {
   return new Promise((resolve, reject) => {
     readAbsFile(article.path)
       .then(result => {
         const {source, url} = getSourceAudioUrl(result);
-        AudioManager.getInstance().playAudio(article.name, url, index, seek);
-        console.log('play next', index + 1, article.name);
+        AudioManager.getInstance().playAudio(
+          article.name,
+          url,
+          index,
+          onlyLoad,
+          seek,
+        );
+        console.log('play next', index, article.name);
         resolve({source, url});
       })
       .catch(err => {
@@ -37,6 +44,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
   _state: 'playing' | 'pause' | null = null;
 
   // 课程path
+  course_name = '';
   course_path = '';
   articles: FileInfo[] = [];
   // 文章索引
@@ -74,7 +82,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
       const course = JSON.parse(courseStr) as CourseInfo;
       this.setCourse(course.name, course.path, course.articles);
       if (idx > -1 && idx < course.articles.length) {
-        loadArticle(course.articles[idx], idx, seek);
+        loadArticle(course.articles[idx], idx, true, seek);
       }
     } catch (err) {}
   }
@@ -82,7 +90,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
   onFinishPlaying(): void {
     if (this.index < this.articles.length - 1) {
       let article = this.articles[this.index + 1];
-      loadArticle(article, this.index + 1);
+      loadArticle(article, this.index + 1, false);
     } else {
       // 结束循环播放
       this.setState(null);
@@ -103,6 +111,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
   setCourse(name: string, path: string, articles: FileInfo[]) {
     if (path === this.course_path) return;
 
+    this.course_name = name;
     this.course_path = path;
     this.articles = articles;
     uiState.course.name.set(name);
@@ -118,7 +127,13 @@ export default class AudioManager implements IAudioPlayerDelegate {
     );
   }
 
-  playAudio(name: string, url: string, index: number, seek?: number) {
+  playAudio(
+    name: string,
+    url: string,
+    index: number,
+    onlyLoad: boolean,
+    seek?: number,
+  ) {
     if (this.url === url) return;
 
     this.index = index;
@@ -134,9 +149,9 @@ export default class AudioManager implements IAudioPlayerDelegate {
     }
 
     try {
-      this.audioPlayer.playUrl(url, seek);
+      this.audioPlayer.playUrl(this.course_name, name, url, onlyLoad, seek);
       this.url = url;
-      this.setState('playing');
+      this.setState(onlyLoad ? 'pause' : 'playing');
     } catch (e) {
       console.log(`cannot play the sound file`, e);
     }

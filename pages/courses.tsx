@@ -45,8 +45,8 @@ export default (props: {
         items.forEach(v => {
           if (v.isDirectory()) {
             lst.push({...v, is_file: v.isFile()});
-          }          
-        });        
+          }
+        });
         setCourses(lst);
       })
       .catch(err => {
@@ -64,7 +64,7 @@ export default (props: {
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: Colors.black,
           },
         ]}>
         {'全部课程'}
@@ -92,7 +92,8 @@ export default (props: {
                   },
                 });
               }
-            }} style={{paddingVertical: 2}}>
+            }}
+            style={{paddingVertical: 2}}>
             <Text>{v.name}</Text>
           </TouchableOpacity>
         ))}

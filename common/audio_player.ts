@@ -13,6 +13,7 @@ export interface IAudioPlayerDelegate {
 }
 
 export class AudioPlayer {
+  disableFinish = false;
   constructor(delegate: IAudioPlayerDelegate) {
     // iOS play sound under background and Mute Mode
     /*
@@ -25,6 +26,7 @@ export class AudioPlayer {
     // 设置Player
     TrackPlayer.setupPlayer().then(_ => {
       TrackPlayer.addEventListener(Event.PlaybackQueueEnded, () => {
+        if (this.disableFinish) return;
         delegate.onFinishPlaying();
       });
       TrackPlayer.addEventListener(
@@ -54,19 +56,29 @@ export class AudioPlayer {
     });
   }
 
-  async playUrl(url: string, seek?: number) {
+  async playUrl(
+    artist: string,
+    title: string,
+    url: string,
+    onlyLoad: boolean,
+    seek?: number,
+  ) {
     // SoundPlayer.playUrl(url);
+    this.disableFinish = true;
     await TrackPlayer.pause();
     await TrackPlayer.reset();
     await TrackPlayer.add({
       url,
-      title: 'Track Title',
-      artist: 'Track Artist',
+      title,
+      artist,
     });
     if (seek) {
       await TrackPlayer.seekTo(seek);
     }
-    await TrackPlayer.play();
+    if (!onlyLoad) {
+      await TrackPlayer.play();
+    }
+    this.disableFinish = false;
   }
 
   pause() {

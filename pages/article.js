@@ -12,6 +12,7 @@ import {
 import { WebView } from 'react-native-webview';
 import { useCallback, useEffect, useState } from 'react';
 import AudioManager, { loadArticle } from '../common/article_oper';
+import ArticleView from '../components/ArticleView';
 
 
 // 禁止页面缩放
@@ -39,70 +40,25 @@ export default ({title, route}) => {
           AudioManager.getInstance().playAudio(article.name, result.url, index);
         });
       }
-      setContent(htmlHead + result.source + htmlEnd);
+      setContent(result.source);
     })
     .catch(err => {
-      setContent("<p>打开文件失败<p/>");
+      setContent("");
     })
   }, [])  
 
-  const INJECTED_JAVASCRIPT = `(function(){
-
-    function playAudio() {
-      var audios = document.getElementsByTagName('audio');
-      if (audios.length) {
-        console.log(audios[0]);
-        /* audios[0].play().then(result => {
-          if (window.ReactNativeWebView) {
-            window.ReactNativeWebView.postMessage(JSON.stringify({
-              name: audios[0].tagName,
-              success: 'ok'
-            }));
-          } 
-        }).catch(e => {
-          if (window.ReactNativeWebView) {
-            window.ReactNativeWebView.postMessage(JSON.stringify({
-              name: audios[0].tagName,
-              error: e
-            }));
-          } 
-        }); */
-      }
-    }
-
-    setTimeout(playAudio, 2000);
-
-   })();`;
-   
    return (
     <View style={styles.sectionContainer}>
       <Text
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: Colors.black,
           },
         ]}>
         {title}
       </Text>      
-      <WebView
-        javaScriptEnabled={true}
-        startInLoadingState={true}
-        injectedJavaScript={INJECTED_JAVASCRIPT}
-        originWhitelist={['*']}
-        scalesPageToFit={true}
-        showsVerticalScrollIndicator={false}
-        source={{html: content}}
-        style={{marginTop: 20}}
-        onMessage={(event) => {
-          console.log('onMessage===', event.nativeEvent.data);
-          const data = event && event.nativeEvent && event.nativeEvent.data;
-          if (data) {
-            const message = JSON.parse(data);
-            console.log(data)
-          }
-        }}
-      />
+      <ArticleView html={content} />
     </View>
   );
 };
