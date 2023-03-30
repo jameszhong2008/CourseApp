@@ -71,6 +71,7 @@ export class AudioPlayer {
       url,
       title,
       artist,
+      artwork: require('../album0.jpg'),
     });
     if (seek) {
       await TrackPlayer.seekTo(seek);

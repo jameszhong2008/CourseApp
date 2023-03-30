@@ -47,9 +47,9 @@ export default () => {
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 8,
     paddingHorizontal: 4,
-    height: '98%',
+    paddingTop: 40,
+    height: '100%',
   },
   textHead: {
     fontSize: 24,

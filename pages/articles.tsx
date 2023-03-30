@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 8,
     paddingHorizontal: 4,
+    paddingBottom: 45,
   },
   sectionTitle: {
     fontSize: 24,

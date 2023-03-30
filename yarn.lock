@@ -5917,6 +5917,11 @@ react-native-gradle-plugin@^0.71.16:
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.16.tgz#822bb0c680e03b5df5aa65f2e5ffc2bc2930854a"
   integrity sha512-H2BjG2zk7B7Wii9sXvd9qhCVRQYDAHSWdMw9tscmZBqSP62DkIWEQSk4/B2GhQ4aK9ydVXgtqR6tBeg3yy8TSA==
 
+react-native-photo-gallery-api@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/react-native-photo-gallery-api/-/react-native-photo-gallery-api-1.2.2.tgz#f2cba1092540bc3432934b11feae5ac172c0333c"
+  integrity sha512-2eFMIxiBVXS+ZxUKhbrRhz5UlgzOCE0UWvzCv5gx6c3eA9c882/Dgad9Zp9e9bHU2H9BXFucykUwj1XJH+AJtw==
+
 react-native-reanimated@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.0.2.tgz#8f7284fab2b0cd949779429e48f32d19a966bbd6"
