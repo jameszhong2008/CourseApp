@@ -101,7 +101,6 @@ export default () => {
   };
 
   const onSelectPlayRate = (item: {label: string, value: string}) => {
-    state.audio.rate.set(parseFloat(item.value));
     AudioManager.getInstance().setRate(parseFloat(item.value));
   }
 
