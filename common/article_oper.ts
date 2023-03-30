@@ -65,6 +65,10 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   async onPlayerReady(): Promise<void> {
+    const rateStr = await AsyncStorage.getItem('rate');
+    if (rateStr) {
+      this.setRate(parseFloat(rateStr));
+    }
     const idxStr = await AsyncStorage.getItem('articleIdx');
     if (!idxStr) return;
     const idx = parseInt(idxStr);
@@ -190,5 +194,15 @@ export default class AudioManager implements IAudioPlayerDelegate {
       return Promise.resolve(0);
     }
     return this.audioPlayer.getPosition();
+  }
+
+  setRate(rate: number) {
+    this.audioPlayer.setRate(rate);
+
+    uiState.audio.rate.set(rate);
+
+    AsyncStorage.setItem('rate', `${rate}`, error => {
+      error && console.log(error.toString());
+    });
   }
 }

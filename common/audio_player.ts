@@ -105,4 +105,9 @@ export class AudioPlayer {
     // return (await SoundPlayer.getInfo()).currentTime;
     return TrackPlayer.getPosition();
   }
+
+  async setRate(rate: number) {
+    // SoundPlayer.setRate(rate);
+    return TrackPlayer.setRate(rate);
+  }
 }

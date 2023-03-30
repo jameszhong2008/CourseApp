@@ -10,6 +10,12 @@ const htmlHead = `<!DOCTYPE html>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <style>
+    p img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 <body>`;
 const htmlEnd = `</body>`;
 

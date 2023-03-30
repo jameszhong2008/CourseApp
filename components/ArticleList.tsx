@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   closeBtn: {
     paddingHorizontal: 4,
     position: 'absolute',
-    top: 40,
+    bottom: 20,
     right: 0,
   },
 });

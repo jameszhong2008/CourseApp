@@ -14,6 +14,7 @@ import Slider from '@react-native-community/slider';
 import {useEffect, useState} from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import ArticleView from './ArticleView';
+import Dropdown from './Dropdown';
 
 const secToTime = (value: number) => {
   const minutes = Math.floor(value / 60);
@@ -22,6 +23,15 @@ const secToTime = (value: number) => {
     seconds < 10 ? '0' + seconds : seconds
   }`;
 };
+
+const rateList = [{ label: '0.5', value: '0.5' },
+{ label: '0.75', value: '0.75' },
+{ label: '1', value: '1' },
+{ label: '1.25', value: '1.25' },
+{ label: '1.5', value: '1.5' },
+{ label: '1.75', value: '1.75' },
+{ label: '2', value: '2' },
+{ label: '3', value: '3' }];
 
 export default () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -90,10 +100,14 @@ export default () => {
     }
   };
 
+  const onSelectPlayRate = (item: {label: string, value: string}) => {
+    state.audio.rate.set(parseFloat(item.value));
+    AudioManager.getInstance().setRate(parseFloat(item.value));
+  }
+
   return (
     <View style={styles.sectionContainer}>
       <Text style={styles.textDark}>{state.audio.title.value}</Text>
-      {content && <ArticleView html={content} />}
       <View>
         <Button title="文章" onPress={onOpenArticle}></Button>
         <View style={{paddingVertical: 8}}>
@@ -114,8 +128,10 @@ export default () => {
             title={getPlayBtnTitle(state.audio.state.value)}
             onPress={toggleAudio}></Button>
           <Button title={'下一个'} onPress={nextArticle}></Button>
-        </View>
+          <Dropdown label={'倍速:' + state.audio.rate.value} data={rateList} onSelect={onSelectPlayRate} />
+        </View>        
       </View>
+      {content && <ArticleView html={content} />}
       <TouchableOpacity
         onPress={() => {
           minimumControl();
@@ -132,7 +148,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     paddingHorizontal: 4,
     height: '98%',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
   },
   horizonFlex: {
     flexDirection: 'row',
@@ -144,7 +160,7 @@ const styles = StyleSheet.create({
   closeBtn: {
     paddingHorizontal: 4,
     position: 'absolute',
-    top: 40,
+    bottom: 20,
     right: 0,
   },
 });
