@@ -61,17 +61,22 @@ export class AudioPlayer {
     title: string,
     url: string,
     onlyLoad: boolean,
+    artwork: string | {url: string},
     seek?: number,
   ) {
     // SoundPlayer.playUrl(url);
     this.disableFinish = true;
     await TrackPlayer.pause();
     await TrackPlayer.reset();
+
+    if (typeof artwork === 'object') {
+      artwork = 'file://' + artwork.url;
+    }
     await TrackPlayer.add({
       url,
       title,
       artist,
-      artwork: require('../album0.jpg'),
+      artwork,
     });
     if (seek) {
       await TrackPlayer.seekTo(seek);

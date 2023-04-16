@@ -141,8 +141,8 @@ export default () => {
       {!content && (
         <Image
           // https://github.com/idrisssakhi/photoGallery
-          source={require('../album0.jpg')}
-          style={{width: 400, height: 500}}></Image>
+          source={AudioManager.getInstance().artwork as any}
+          style={{width: 400, height: 640}}></Image>
       )}
       <TouchableOpacity
         onPress={() => {

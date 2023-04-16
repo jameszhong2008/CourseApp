@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 8,
     paddingHorizontal: 4,
-    paddingBottom: 45,
     /** 必须将WebView 的父节点设置flex为1， 否则该页面闪退*/
     flex: 1
   },

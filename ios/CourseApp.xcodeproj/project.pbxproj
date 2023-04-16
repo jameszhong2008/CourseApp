@@ -11,7 +11,6 @@
 		0C80B921A6F3F58F76C31292 /* libPods-CourseApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-CourseApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1A3B6E5E29D1B29C003E38DB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B6E5D29D1B29C003E38DB /* File.swift */; };
 		7699B88040F8A987B510C191 /* libPods-CourseApp-CourseAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-CourseApp-CourseAppTests.a */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +36,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CourseApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-CourseApp-CourseAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CourseApp-CourseAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3B6E5C29D1B29B003E38DB /* CourseApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CourseApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		1A3B6E5D29D1B29C003E38DB /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = CourseApp/File.swift; sourceTree = "<group>"; };
+		1A41EB0529EBF2D100BB6FEB /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.jsbundle; path = CourseApp/main.jsbundle; sourceTree = "<group>"; };
 		1A8917ED29CB19C100074B0C /* 20 _ 揭秘 Python 协程.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "20 _ 揭秘 Python 协程.html"; sourceTree = "<group>"; };
 		1A8917EE29CB19C100074B0C /* 39 _ Django：搭建监控平台.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "39 _ Django：搭建监控平台.html"; sourceTree = "<group>"; };
 		1A8917EF29CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "37 _ Kafka & ZMQ：自动化交易流水线.html"; sourceTree = "<group>"; };
@@ -170,10 +169,10 @@
 		13B07FAE1A68108700A75B9A /* CourseApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A41EB0529EBF2D100BB6FEB /* main.jsbundle */,
 				1A8917EB29CB197700074B0C /* Supporting Files */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
-				1A3B6E5D29D1B29C003E38DB /* File.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -606,7 +605,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
-				1A3B6E5E29D1B29C003E38DB /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,7 +624,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-CourseApp-CourseAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -654,7 +651,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-CourseApp-CourseAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CourseAppTests/Info.plist;

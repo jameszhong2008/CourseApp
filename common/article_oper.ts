@@ -5,6 +5,7 @@ import {readAbsFile} from './file_oper';
 import {uiState} from '../state/ui-state';
 import {AudioPlayer, IAudioPlayerDelegate} from './audio_player';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AlbumOper} from './album_oper';
 
 export const loadArticle = (
   article: FileInfo,
@@ -49,6 +50,9 @@ export default class AudioManager implements IAudioPlayerDelegate {
   articles: FileInfo[] = [];
   // 文章索引
   index: number = -1;
+  // '../album0.jpg'
+  photoCount = 0;
+  artwork: string | {url: string} = require('../album0.jpg');
 
   audioPlayer: AudioPlayer;
 
@@ -65,6 +69,8 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   async onPlayerReady(): Promise<void> {
+    this.photoCount = await AlbumOper.getCourseAlbumCount();
+
     const rateStr = await AsyncStorage.getItem('rate');
     if (rateStr) {
       this.setRate(parseFloat(rateStr));
@@ -131,7 +137,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
     );
   }
 
-  playAudio(
+  async playAudio(
     name: string,
     url: string,
     index: number,
@@ -152,8 +158,26 @@ export default class AudioManager implements IAudioPlayerDelegate {
       AsyncStorage.removeItem('articleSeek');
     }
 
+    if (this.photoCount) {
+      const photo = await AlbumOper.getPhotoOfAlbum(
+        'CourseApp',
+        Math.round(Math.random() * this.photoCount),
+        this.photoCount,
+      );
+      if (photo) {
+        this.artwork = {url: photo};
+      }
+    }
+
     try {
-      this.audioPlayer.playUrl(this.course_name, name, url, onlyLoad, seek);
+      this.audioPlayer.playUrl(
+        this.course_name,
+        name,
+        url,
+        onlyLoad,
+        this.artwork,
+        seek,
+      );
       this.url = url;
       this.setState(onlyLoad ? 'pause' : 'playing');
     } catch (e) {
