@@ -6,6 +6,7 @@ import {uiState} from '../state/ui-state';
 import {AudioPlayer, IAudioPlayerDelegate} from './audio_player';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AlbumOper} from './album_oper';
+import {Platform} from 'react-native';
 
 export const loadArticle = (
   article: FileInfo,
@@ -15,10 +16,16 @@ export const loadArticle = (
 ) => {
   return new Promise((resolve, reject) => {
     readAbsFile(article.path)
-      .then(result => {
+      .then(async result => {
+        // 记录进度
+        await AudioManager.getInstance().recordArticleProgress();
+
+        await AudioManager.getInstance().recordCourseProgress();
+
         const {source, url} = getSourceAudioUrl(result);
         AudioManager.getInstance().playAudio(
           article.name,
+          article.path,
           url,
           index,
           onlyLoad,
@@ -41,6 +48,7 @@ interface CourseInfo {
 
 export default class AudioManager implements IAudioPlayerDelegate {
   title = '';
+  path = '';
   url: string = '';
   _state: 'playing' | 'pause' | null = null;
 
@@ -48,11 +56,17 @@ export default class AudioManager implements IAudioPlayerDelegate {
   course_name = '';
   course_path = '';
   articles: FileInfo[] = [];
+  // 记录当前音频所属课程
+  pre_course = {
+    name: '',
+    path: '',
+    articles: [] as FileInfo[],
+  };
   // 文章索引
   index: number = -1;
   // '../album0.jpg'
   photoCount = 0;
-  artwork: string | {url: string} = require('../album0.jpg');
+  artwork: string | {url: string} = '';
 
   audioPlayer: AudioPlayer;
 
@@ -65,9 +79,18 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   constructor() {
+    // if (Platform.OS === 'ios') {
+    //   try {
+    //     this.artwork = require('../album0.jpg');
+    //   } catch {}
+    // }
     this.audioPlayer = new AudioPlayer(this);
   }
 
+  /**
+   * 读入当前的课程和文章
+   * @returns
+   */
   async onPlayerReady(): Promise<void> {
     this.photoCount = await AlbumOper.getCourseAlbumCount();
 
@@ -97,11 +120,15 @@ export default class AudioManager implements IAudioPlayerDelegate {
     } catch (err) {}
   }
 
-  onFinishPlaying(): void {
+  async onFinishPlaying() {
     if (this.index < this.articles.length - 1) {
       let article = this.articles[this.index + 1];
       loadArticle(article, this.index + 1, false);
     } else {
+      // 记录进度
+      await this.recordArticleProgress();
+
+      await this.recordCourseProgress();
       // 结束循环播放
       this.setState(null);
     }
@@ -121,6 +148,13 @@ export default class AudioManager implements IAudioPlayerDelegate {
   setCourse(name: string, path: string, articles: FileInfo[]) {
     if (path === this.course_path) return;
 
+    // 记录当前音频所属课程
+    this.pre_course = {
+      name: this.course_name || name,
+      path: this.course_path || path,
+      articles: this.course_name ? this.articles : articles,
+    };
+
     this.course_name = name;
     this.course_path = path;
     this.articles = articles;
@@ -137,8 +171,75 @@ export default class AudioManager implements IAudioPlayerDelegate {
     );
   }
 
+  /**
+   * 保存当前文章听到的位置
+   * @returns
+   */
+  async recordArticleProgress() {
+    if (!this.pre_course.name || !this.title) return;
+
+    const key = `article_prog_${this.pre_course.name.trim()}_${this.title.trim()}`;
+
+    const duration = await this.getDuration();
+    const position = await this.getPosition();
+
+    const value = await AsyncStorage.getItem(key);
+    if (typeof value === 'string' && parseFloat(value) > 0.999) {
+      // 已经听完， 不再记录
+      return;
+    }
+
+    const progress = `${(position / (duration || 1)).toFixed(3)}`;
+    AsyncStorage.setItem(key, progress, error => {
+      error && console.log(error.toString());
+    });
+  }
+
+  /**
+   * 保存当前课程听到的位置
+   * @returns
+   */
+  async recordCourseProgress() {
+    if (!this.pre_course.name) return;
+
+    const key = `course_prog_${this.pre_course.name.trim()}`;
+
+    const value = await AsyncStorage.getItem(key);
+    if (typeof value === 'string' && parseFloat(value) > 0.999) {
+      // 已经听完， 不再记录
+      return;
+    }
+
+    let finish = 0;
+    for (const v of this.pre_course.articles) {
+      const keyA = `article_prog_${this.pre_course.name.trim()}_${v.name.trim()}`;
+      const val = await AsyncStorage.getItem(keyA);
+      if (typeof value === 'string' && val) {
+        finish += parseFloat(val);
+      }
+    }
+
+    const progress = `${(
+      finish / (this.pre_course.articles.length || 1)
+    ).toFixed(3)}`;
+    AsyncStorage.setItem(key, progress, error => {
+      error && console.log(error.toString());
+    });
+  }
+
+  /**
+   *
+   * @param title 文章名称
+   * @param path 文章地址
+   * @param url 音频地址
+   * @param index 文章在课程中序号
+   * @param onlyLoad 仅加载，不播放
+   * @param seek 设置音频位置
+   * @returns
+   */
   async playAudio(
-    name: string,
+    title: string,
+    path: string,
     url: string,
     index: number,
     onlyLoad: boolean,
@@ -146,8 +247,10 @@ export default class AudioManager implements IAudioPlayerDelegate {
   ) {
     if (this.url === url) return;
 
+    this.title = title;
+    this.path = path;
     this.index = index;
-    uiState.audio.merge({title: name, index});
+    uiState.audio.merge({title, index});
 
     // 保存文章索引
     AsyncStorage.setItem('articleIdx', `${index}`, error => {
@@ -172,7 +275,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
     try {
       this.audioPlayer.playUrl(
         this.course_name,
-        name,
+        title,
         url,
         onlyLoad,
         this.artwork,

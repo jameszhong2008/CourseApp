@@ -36,11 +36,6 @@ export default ({title, route}) => {
   const [content, setContent] = useState('');
   useEffect(() => {
     loadArticle(article, index).then(result => {      
-      if (result.url) {
-        setTimeout(() => {
-          AudioManager.getInstance().playAudio(article.name, result.url, index);
-        });
-      }
       setContent(result.source);
     })
     .catch(err => {

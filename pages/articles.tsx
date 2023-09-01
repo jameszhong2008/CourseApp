@@ -9,6 +9,7 @@ import {Platform} from 'react-native';
 import RNFS from 'react-native-fs';
 import AudioManager from '../common/article_oper';
 import {sortByTime} from '../common/file_oper';
+import ArticleScrollView from '../components/ArticleScrollView';
 
 export default (props: {
   title: string;
@@ -54,26 +55,17 @@ export default (props: {
         ]}>
         {name}
       </Text>
-      <ScrollView>
-        {articles.map((v, index) => (
-          <TouchableOpacity
-            key={v.name}
-            onPress={() => {
-              AudioManager.getInstance().setCourse(name, path, articles);
-              props.navigation.navigate('Article', {
-                index,
-                article: {
-                  name: v.name,
-                  path: v.path,
-                  /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
-                },
-              });
-            }}
-            style={{paddingVertical: 2}}>
-            <Text>{v.name}</Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      <ArticleScrollView course={name} articles={articles} onPress={(v, index) => {
+        AudioManager.getInstance().setCourse(name, path, articles);
+        props.navigation.navigate('Article', {
+          index,
+          article: {
+            name: v.name,
+            path: v.path,
+            /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
+          },
+        });
+      }}/>
     </View>
   );
 };

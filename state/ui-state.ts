@@ -8,7 +8,16 @@ export const uiState = hookstate<{
   audio: {title: string; state: AudioState; index: number; rate: number};
   control: {module: ControlState};
 }>({
+  /**
+   * 当前音频
+   */
   audio: {title: '', state: null, index: -1, rate: 1},
+  /**
+   * 当前课程
+   */
   course: {name: '', articles: []},
+  /**
+   * 控制条状态
+   */
   control: {module: 'base'},
 });

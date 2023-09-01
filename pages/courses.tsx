@@ -16,6 +16,7 @@ import {Platform} from 'react-native';
 import {useEffect, useState} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getAppDataPath, sortByTime} from '../common/file_oper';
+import CourseItem from '../components/CourseItem';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -71,8 +72,9 @@ export default (props: {
       </Text>
       <ScrollView>
         {courses.map(v => (
-          <TouchableOpacity
+          <CourseItem
             key={v.name}
+            course={v.name}
             onPress={() => {
               if (v.is_file) {
                 props.navigation.navigate('Article', {
@@ -92,10 +94,8 @@ export default (props: {
                   },
                 });
               }
-            }}
-            style={{paddingVertical: 2}}>
-            <Text>{v.name}</Text>
-          </TouchableOpacity>
+            }}            
+          />
         ))}
       </ScrollView>
     </View>
