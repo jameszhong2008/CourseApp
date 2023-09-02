@@ -81,6 +81,8 @@ export default () => {
   }, []);
 
   const minimumControl = () => {
+    // 记录进度
+    AudioManager.getInstance().recordProgress();
     state.control.module.set('base');
   };
 

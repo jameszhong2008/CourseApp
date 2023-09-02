@@ -41,7 +41,11 @@ export default ({title, route}) => {
     .catch(err => {
       setContent("");
     })
-  }, [])  
+    return () => {
+      // 记录进度
+      AudioManager.getInstance().recordProgress();
+    }
+  }, [])
 
    return (
     <View style={styles.sectionContainer}>

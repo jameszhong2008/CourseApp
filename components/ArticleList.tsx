@@ -8,13 +8,15 @@ import {
 } from 'react-native';
 import {uiState} from '../state/ui-state';
 import {useHookstate} from '@hookstate/core';
-import {loadArticle} from '../common/article_oper';
+import AudioManager, {loadArticle} from '../common/article_oper';
 import ArticleScrollView from './ArticleScrollView';
 
 export default () => {
   const isDarkMode = useColorScheme() === 'dark';
   const state = useHookstate(uiState);
   const minimumControl = () => {
+    // 记录进度
+    AudioManager.getInstance().recordProgress();
     state.control.module.set('base');
   };
   const articles = state.course.articles.value.map(v => {
@@ -24,17 +26,21 @@ export default () => {
       name: v.name,
       path: v.path,
       size: v.size,
-      is_file: v.is_file
-    }
-  })
+      is_file: v.is_file,
+    };
+  });
   return (
     <View style={styles.sectionContainer}>
       <Text style={[styles.textHead, styles.textDark]}>
         {state.course.name.value || '课程为空'}
       </Text>
-      <ArticleScrollView course={state.course.name.value} articles={articles} onPress={(v, index) => {
-        loadArticle(v, index);
-      }} />      
+      <ArticleScrollView
+        course={state.course.name.value}
+        articles={articles}
+        onPress={(v, index) => {
+          loadArticle(v, index);
+        }}
+      />
       <TouchableOpacity
         onPress={() => {
           minimumControl();

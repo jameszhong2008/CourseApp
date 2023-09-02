@@ -18,9 +18,7 @@ export const loadArticle = (
     readAbsFile(article.path)
       .then(async result => {
         // 记录进度
-        await AudioManager.getInstance().recordArticleProgress();
-
-        await AudioManager.getInstance().recordCourseProgress();
+        await AudioManager.getInstance().recordProgress();
 
         const {source, url} = getSourceAudioUrl(result);
         AudioManager.getInstance().playAudio(
@@ -79,11 +77,11 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   constructor() {
-    // if (Platform.OS === 'ios') {
-    //   try {
-    //     this.artwork = require('../album0.jpg');
-    //   } catch {}
-    // }
+    if (Platform.OS === 'ios') {
+      try {
+        this.artwork = require('../album0.jpg');
+      } catch {}
+    }
     this.audioPlayer = new AudioPlayer(this);
   }
 
@@ -126,9 +124,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
       loadArticle(article, this.index + 1, false);
     } else {
       // 记录进度
-      await this.recordArticleProgress();
-
-      await this.recordCourseProgress();
+      await this.recordProgress();
       // 结束循环播放
       this.setState(null);
     }
@@ -172,6 +168,14 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   /**
+   * 记录课程和文章播放进度
+   */
+  async recordProgress() {
+    await this.recordArticleProgress();
+    await this.recordCourseProgress();
+  }
+
+  /**
    * 保存当前文章听到的位置
    * @returns
    */
@@ -193,6 +197,8 @@ export default class AudioManager implements IAudioPlayerDelegate {
     AsyncStorage.setItem(key, progress, error => {
       error && console.log(error.toString());
     });
+    // 更新界面
+    uiState.updateArticleProgress.set(key);
   }
 
   /**
@@ -225,6 +231,8 @@ export default class AudioManager implements IAudioPlayerDelegate {
     AsyncStorage.setItem(key, progress, error => {
       error && console.log(error.toString());
     });
+    // 更新界面
+    uiState.updateArticleProgress.set(key);
   }
 
   /**

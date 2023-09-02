@@ -7,6 +7,8 @@ export const uiState = hookstate<{
   course: {name: string; articles: FileInfo[]};
   audio: {title: string; state: AudioState; index: number; rate: number};
   control: {module: ControlState};
+  updateCourseProgress: string;
+  updateArticleProgress: string;
 }>({
   /**
    * 当前音频
@@ -20,4 +22,12 @@ export const uiState = hookstate<{
    * 控制条状态
    */
   control: {module: 'base'},
+  /**
+   * 更新课程和文章的进度显示
+   */
+  updateCourseProgress: '',
+  /**
+   * 更新课程和文章的进度显示
+   */
+  updateArticleProgress: '',
 });
