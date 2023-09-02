@@ -15,8 +15,6 @@ export default () => {
   const isDarkMode = useColorScheme() === 'dark';
   const state = useHookstate(uiState);
   const minimumControl = () => {
-    // 记录进度
-    AudioManager.getInstance().recordProgress();
     state.control.module.set('base');
   };
   const articles = state.course.articles.value.map(v => {
