@@ -84,6 +84,11 @@ export class AudioPlayer {
     if (!onlyLoad) {
       await TrackPlayer.play();
     }
+    // 确保音频已打开， 获取下长度
+    const duration = await this.getDuration();
+    if (duration <= 0) return;
+
+    // 完成播放自动切换下条音频
     this.disableFinish = false;
   }
 
