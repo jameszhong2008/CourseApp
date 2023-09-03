@@ -38,7 +38,7 @@ export default ({course, onPress}: {course: string; onPress: () => void}) => {
     if (state.updateCourseProgress.value !== key) return;
     updatePrgress();
     state.updateCourseProgress.set('');
-  }, [state.updateCourseProgress]);
+  }, [state.updateCourseProgress.value]);
 
   useEffect(() => {
     updatePrgress();
