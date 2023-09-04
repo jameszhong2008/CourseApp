@@ -1,0 +1,223 @@
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml b/node_modules/react-native-photo-gallery-api/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml
+index 7f856e1..2cff081 100644
+--- a/node_modules/react-native-photo-gallery-api/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml
+@@ -4,6 +4,6 @@
+ 
+     <uses-sdk
+         android:minSdkVersion="21"
+-        android:targetSdkVersion="31" />
++        android:targetSdkVersion="33" />
+ 
+ </manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_r_class_jar/debug/R.jar b/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_r_class_jar/debug/R.jar
+index f2db608..c000e46 100644
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_r_class_jar/debug/R.jar and b/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_r_class_jar/debug/R.jar differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_symbol_list/debug/R.txt b/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_symbol_list/debug/R.txt
+index 0d0eb92..7c9d30e 100644
+--- a/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_symbol_list/debug/R.txt
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/compile_symbol_list/debug/R.txt
+@@ -679,6 +679,8 @@ int drawable tooltip_frame_dark 0x0
+ int drawable tooltip_frame_light 0x0
+ int id accessibility_action_clickable_span 0x0
+ int id accessibility_actions 0x0
++int id accessibility_collection 0x0
++int id accessibility_collection_item 0x0
+ int id accessibility_custom_action_0 0x0
+ int id accessibility_custom_action_1 0x0
+ int id accessibility_custom_action_10 0x0
+@@ -797,9 +799,7 @@ int id notification_main_column_container 0x0
+ int id off 0x0
+ int id on 0x0
+ int id parentPanel 0x0
+-int id pointer_enter 0x0
+-int id pointer_leave 0x0
+-int id pointer_move 0x0
++int id pointer_events 0x0
+ int id progress_circular 0x0
+ int id progress_horizontal 0x0
+ int id radio 0x0
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/react-native-photo-gallery-api/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+new file mode 100644
+index 0000000..0aff482
+--- /dev/null
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Mon Sep 04 10:14:06 CST 2023
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/react-native-photo-gallery-api/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+new file mode 100644
+index 0000000..55a0f6e
+--- /dev/null
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\res"/><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\build\generated\res\rs\debug"/><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\res"/><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\build\generated\res\rs\debug"/><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"/><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"/><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/BuildConfig.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/BuildConfig.class
+deleted file mode 100644
+index 196dfd8..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/BuildConfig.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$1.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$1.class
+deleted file mode 100644
+index 1460514..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$1.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$DeletePhotos.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$DeletePhotos.class
+deleted file mode 100644
+index a2b661e..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$DeletePhotos.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$GetMediaTask.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$GetMediaTask.class
+deleted file mode 100644
+index 8105c6a..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$GetMediaTask.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$SaveToCameraRoll.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$SaveToCameraRoll.class
+deleted file mode 100644
+index 997ea3a..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule$SaveToCameraRoll.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule.class
+deleted file mode 100644
+index babe00a..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryModule.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryPackage.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryPackage.class
+deleted file mode 100644
+index 060351a..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/RNPhotoGalleryPackage.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/Utils.class b/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/Utils.class
+deleted file mode 100644
+index a2b4e8b..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/intermediates/javac/debug/classes/com/photo/gallery/Utils.class and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt b/node_modules/react-native-photo-gallery-api/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt
+index 868fe35..84d5b8a 100644
+--- a/node_modules/react-native-photo-gallery-api/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt
+@@ -4,8 +4,8 @@
+ 4
+ 5    <uses-sdk
+ 6        android:minSdkVersion="21"
+-6-->/Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-7        android:targetSdkVersion="31" />
+-7-->/Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
++6-->E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++7        android:targetSdkVersion="33" />
++7-->E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
+ 8
+ 9</manifest>
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml b/node_modules/react-native-photo-gallery-api/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml
+index 7f856e1..2cff081 100644
+--- a/node_modules/react-native-photo-gallery-api/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml
+@@ -4,6 +4,6 @@
+ 
+     <uses-sdk
+         android:minSdkVersion="21"
+-        android:targetSdkVersion="31" />
++        android:targetSdkVersion="33" />
+ 
+ </manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt b/node_modules/react-native-photo-gallery-api/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt
+index 18c7e53..868b116 100644
+--- a/node_modules/react-native-photo-gallery-api/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt
++++ b/node_modules/react-native-photo-gallery-api/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt
+@@ -680,6 +680,8 @@ drawable tooltip_frame_dark
+ drawable tooltip_frame_light
+ id accessibility_action_clickable_span
+ id accessibility_actions
++id accessibility_collection
++id accessibility_collection_item
+ id accessibility_custom_action_0
+ id accessibility_custom_action_1
+ id accessibility_custom_action_10
+@@ -798,9 +800,7 @@ id notification_main_column_container
+ id off
+ id on
+ id parentPanel
+-id pointer_enter
+-id pointer_leave
+-id pointer_move
++id pointer_events
+ id progress_circular
+ id progress_horizontal
+ id radio
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/react-native-photo-gallery-api/android/build/outputs/logs/manifest-merger-debug-report.txt
+index 11c86e2..22d5af2 100644
+--- a/node_modules/react-native-photo-gallery-api/android/build/outputs/logs/manifest-merger-debug-report.txt
++++ b/node_modules/react-native-photo-gallery-api/android/build/outputs/logs/manifest-merger-debug-report.txt
+@@ -1,25 +1,25 @@
+ -- Merging decision tree log ---
+ manifest
+-ADDED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml:2:1-5:12
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml:2:1-5:12
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml:2:1-5:12
++ADDED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml:2:1-5:12
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml:2:1-5:12
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml:2:1-5:12
+ 	package
+-		ADDED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml:3:11-38
+-		INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-		INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
++		ADDED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml:3:11-38
++		INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++		INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
+ 	xmlns:android
+-		ADDED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml:2:11-69
++		ADDED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml:2:11-69
+ uses-sdk
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
+ 	android:targetSdkVersion
+-		INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-		ADDED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-		INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
++		INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++		ADDED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++		INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
+ 	android:minSdkVersion
+-		INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-		ADDED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
+-		INJECTED from /Users/isakhi/projects/mine/photoGallery/android/src/main/AndroidManifest.xml
++		INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++		ADDED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
++		INJECTED from E:\Experiments\git\CourseApp\node_modules\react-native-photo-gallery-api\android\src\main\AndroidManifest.xml
+diff --git a/node_modules/react-native-photo-gallery-api/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/react-native-photo-gallery-api/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
+deleted file mode 100644
+index 51237c7..0000000
+Binary files a/node_modules/react-native-photo-gallery-api/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin and /dev/null differ
+diff --git a/node_modules/react-native-photo-gallery-api/android/src/main/java/com/photo/gallery/RNPhotoGalleryModule.java b/node_modules/react-native-photo-gallery-api/android/src/main/java/com/photo/gallery/RNPhotoGalleryModule.java
+index 15ce49e..44c91d7 100644
+--- a/node_modules/react-native-photo-gallery-api/android/src/main/java/com/photo/gallery/RNPhotoGalleryModule.java
++++ b/node_modules/react-native-photo-gallery-api/android/src/main/java/com/photo/gallery/RNPhotoGalleryModule.java
+@@ -687,7 +687,11 @@ public class RNPhotoGalleryModule extends ReactContextBaseJavaModule {
+                                 + photoUri.toString(),
+                         e);
+             }
+-            retriever.release();
++            try {
++                retriever.release();
++            } catch (IOException e) {
++                // Do nothing. We can't handle this, and this is usually a system problem
++            }
+         }
+ 
+         if (photoDescriptor != null) {
+@@ -754,7 +758,11 @@ public class RNPhotoGalleryModule extends ReactContextBaseJavaModule {
+                                         + photoUri.toString(),
+                                 e);
+                     }
+-                    retriever.release();
++                    try {
++                        retriever.release();
++                    } catch (IOException e) {
++                        // Do nothing. We can't handle this, and this is usually a system problem
++                    }
+                 } else {
+                     BitmapFactory.Options options = new BitmapFactory.Options();
+                     // Set inJustDecodeBounds to true so we don't actually load the Bitmap, but only get its

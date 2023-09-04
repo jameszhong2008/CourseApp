@@ -77,11 +77,11 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   constructor() {
-    if (Platform.OS === 'ios') {
-      try {
-        this.artwork = require('../album0.jpg');
-      } catch {}
-    }
+    // if (Platform.OS === 'ios') {
+    //   try {
+    //     this.artwork = require('../album0.jpg');
+    //   } catch {}
+    // }
     this.audioPlayer = new AudioPlayer(this);
   }
 
