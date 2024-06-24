@@ -10,8 +10,11 @@
 		00E356F31AD99517003FC87E /* CourseAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CourseAppTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-CourseApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-CourseApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		19B2B29A0485CB27C324B7D7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 54C7E357D8EAAC47CDABD11E /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-CourseApp-CourseAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-CourseApp-CourseAppTests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,93 +37,10 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CourseApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CourseApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CourseApp/main.m; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = CourseApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-CourseApp-CourseAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CourseApp-CourseAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A3B6E5C29D1B29B003E38DB /* CourseApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CourseApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		1A41EB0529EBF2D100BB6FEB /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.jsbundle; path = CourseApp/main.jsbundle; sourceTree = "<group>"; };
-		1A8917ED29CB19C100074B0C /* 20 _ 揭秘 Python 协程.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "20 _ 揭秘 Python 协程.html"; sourceTree = "<group>"; };
-		1A8917EE29CB19C100074B0C /* 39 _ Django：搭建监控平台.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "39 _ Django：搭建监控平台.html"; sourceTree = "<group>"; };
-		1A8917EF29CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "37 _ Kafka & ZMQ：自动化交易流水线.html"; sourceTree = "<group>"; };
-		1A8917F029CB19C100074B0C /* 05 _ 深入浅出字符串.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "05 _ 深入浅出字符串.html"; sourceTree = "<group>"; };
-		1A8917F129CB19C100074B0C /* 09 _ 不可或缺的自定义函数.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "09 _ 不可或缺的自定义函数.html"; sourceTree = "<group>"; };
-		1A8917F229CB19C100074B0C /* 28 _ 如何合理利用assert？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "28 _ 如何合理利用assert？.html"; sourceTree = "<group>"; };
-		1A8917F329CB19C100074B0C /* 08 _ 异常处理：如何提高程序的稳定性？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "08 _ 异常处理：如何提高程序的稳定性？.html"; sourceTree = "<group>"; };
-		1A8917F429CB19C100074B0C /* 26 _ 活都来不及干了，还有空注意代码风格？！.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "26 _ 活都来不及干了，还有空注意代码风格？！.html"; sourceTree = "<group>"; };
-		1A8917F529CB19C100074B0C /* 31 _ pdb & cProfile：调试和性能分析的法宝.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "31 _ pdb & cProfile：调试和性能分析的法宝.html"; sourceTree = "<group>"; };
-		1A8917F629CB19C100074B0C /* 03 _ 列表和元组，到底用哪一个？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "03 _ 列表和元组，到底用哪一个？.html"; sourceTree = "<group>"; };
-		1A8917F729CB19C100074B0C /* 开篇词 _ 从工程的角度深入理解Python.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "开篇词 _ 从工程的角度深入理解Python.html"; sourceTree = "<group>"; };
-		1A8917F829CB19C100074B0C /* 24 _ 带你解析 Python 垃圾回收机制.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "24 _ 带你解析 Python 垃圾回收机制.html"; sourceTree = "<group>"; };
-		1A8917F929CB19C100074B0C /* 43 _ Q&A：聊一聊职业发展和选择.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "43 _ Q&A：聊一聊职业发展和选择.html"; sourceTree = "<group>"; };
-		1A8917FA29CB19C100074B0C /* 42 _ 细数技术研发的注意事项.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "42 _ 细数技术研发的注意事项.html"; sourceTree = "<group>"; };
-		1A8917FB29CB19C100074B0C /* 40 _ 总结：Python中的数据结构与算法全景.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "40 _ 总结：Python中的数据结构与算法全景.html"; sourceTree = "<group>"; };
-		1A8917FC29CB19C100074B0C /* 30 _ 真的有必要写单元测试吗？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "30 _ 真的有必要写单元测试吗？.html"; sourceTree = "<group>"; };
-		1A8917FD29CB19C100074B0C /* 07 _ 修炼基本功：条件与循环.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "07 _ 修炼基本功：条件与循环.html"; sourceTree = "<group>"; };
-		1A8917FE29CB19C100074B0C /* 36 _ Pandas & Numpy：策略与回测系统.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "36 _ Pandas & Numpy：策略与回测系统.html"; sourceTree = "<group>"; };
-		1A8917FF29CB19C100074B0C /* 38 _ MySQL：日志和数据存储系统.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "38 _ MySQL：日志和数据存储系统.html"; sourceTree = "<group>"; };
-		1A89180029CB19C100074B0C /* 14 _ 答疑（一）：列表和元组的内部实现是怎样的？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "14 _ 答疑（一）：列表和元组的内部实现是怎样的？.html"; sourceTree = "<group>"; };
-		1A89180129CB19C100074B0C /* 13 _ 搭建积木：Python 模块化.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "13 _ 搭建积木：Python 模块化.html"; sourceTree = "<group>"; };
-		1A89180229CB19C100074B0C /* 06 _ Python “黑箱”：输入与输出.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "06 _ Python “黑箱”：输入与输出.html"; sourceTree = "<group>"; };
-		1A89180329CB19C100074B0C /* 21 _ Python并发编程之Futures.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "21 _ Python并发编程之Futures.html"; sourceTree = "<group>"; };
-		1A89180429CB19C100074B0C /* 29 _ 巧用上下文管理器和With语句精简代码.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "29 _ 巧用上下文管理器和With语句精简代码.html"; sourceTree = "<group>"; };
-		1A89180529CB19C100074B0C /* 10 _ 简约不简单的匿名函数.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "10 _ 简约不简单的匿名函数.html"; sourceTree = "<group>"; };
-		1A89180629CB19C100074B0C /* 27 _ 学会合理分解代码，提高代码可读性.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "27 _ 学会合理分解代码，提高代码可读性.html"; sourceTree = "<group>"; };
-		1A89180729CB19C100074B0C /* 33 _ 带你初探量化世界.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "33 _ 带你初探量化世界.html"; sourceTree = "<group>"; };
-		1A89180829CB19C100074B0C /* 结束语 _ 技术之外的几点成长建议.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "结束语 _ 技术之外的几点成长建议.html"; sourceTree = "<group>"; };
-		1A89180929CB19C100074B0C /* 23 _ 你真的懂Python GIL（全局解释器锁）吗？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "23 _ 你真的懂Python GIL（全局解释器锁）吗？.html"; sourceTree = "<group>"; };
-		1A89180A29CB19C100074B0C /* 34 _ RESTful & Socket：搭建交易执行层核心.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "34 _ RESTful & Socket：搭建交易执行层核心.html"; sourceTree = "<group>"; };
-		1A89180B29CB19C100074B0C /* 02 _ Jupyter Notebook为什么是现代Python的必学技术？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "02 _ Jupyter Notebook为什么是现代Python的必学技术？.html"; sourceTree = "<group>"; };
-		1A89180C29CB19C100074B0C /* 32 _ 答疑（三）：如何选择合适的异常处理方式？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "32 _ 答疑（三）：如何选择合适的异常处理方式？.html"; sourceTree = "<group>"; };
-		1A89180D29CB19C100074B0C /* 加餐 _ 带你上手SWIG：一份清晰好用的SWIG编程实践指南.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "加餐 _ 带你上手SWIG：一份清晰好用的SWIG编程实践指南.html"; sourceTree = "<group>"; };
-		1A89180E29CB19C100074B0C /* 18 _ metaclass，是潘多拉魔盒还是阿拉丁神灯？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "18 _ metaclass，是潘多拉魔盒还是阿拉丁神灯？.html"; sourceTree = "<group>"; };
-		1A89180F29CB19C100074B0C /* 04 _ 字典、集合，你真的了解吗？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "04 _ 字典、集合，你真的了解吗？.html"; sourceTree = "<group>"; };
-		1A89181029CB19C100074B0C /* 15 _ Python对象的比较、拷贝.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "15 _ Python对象的比较、拷贝.html"; sourceTree = "<group>"; };
-		1A89181129CB19C100074B0C /* 19 _ 深入理解迭代器和生成器.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "19 _ 深入理解迭代器和生成器.html"; sourceTree = "<group>"; };
-		1A89181229CB19C100074B0C /* 12 _ 面向对象（下）：如何实现一个搜索引擎？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "12 _ 面向对象（下）：如何实现一个搜索引擎？.html"; sourceTree = "<group>"; };
-		1A89181329CB19C100074B0C /* 11 _ 面向对象（上）：从生活中的类比说起.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "11 _ 面向对象（上）：从生活中的类比说起.html"; sourceTree = "<group>"; };
-		1A89181429CB19C100074B0C /* 22 _ 并发编程之Asyncio.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "22 _ 并发编程之Asyncio.html"; sourceTree = "<group>"; };
-		1A89181529CB19C100074B0C /* 结课测试 _ 关于Python的这些知识，你都掌握了吗？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "结课测试 _ 关于Python的这些知识，你都掌握了吗？.html"; sourceTree = "<group>"; };
-		1A89181629CB19C100074B0C /* 17 _ 强大的装饰器.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "17 _ 强大的装饰器.html"; sourceTree = "<group>"; };
-		1A89181729CB19C100074B0C /* 41 _ 硅谷一线互联网公司的工作体验.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "41 _ 硅谷一线互联网公司的工作体验.html"; sourceTree = "<group>"; };
-		1A89181829CB19C100074B0C /* 16 _ 值传递，引用传递or其他，Python里参数是如何传递的？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "16 _ 值传递，引用传递or其他，Python里参数是如何传递的？.html"; sourceTree = "<group>"; };
-		1A89181929CB19C100074B0C /* 35 _ RESTful & Socket：行情数据对接和抓取.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "35 _ RESTful & Socket：行情数据对接和抓取.html"; sourceTree = "<group>"; };
-		1A89181A29CB19C100074B0C /* 01 _ 如何逐步突破，成为Python高手？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "01 _ 如何逐步突破，成为Python高手？.html"; sourceTree = "<group>"; };
-		1A89181B29CB19C100074B0C /* 25 _ 答疑（二）：GIL与多线程是什么关系呢？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "25 _ 答疑（二）：GIL与多线程是什么关系呢？.html"; sourceTree = "<group>"; };
-		1A89181D29CB19C100074B0C /* 23｜热更新：如何搭建一个热更新平台？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "23｜热更新：如何搭建一个热更新平台？.html"; sourceTree = "<group>"; };
-		1A89181E29CB19C100074B0C /* 22｜自定义组件：如何满足业务的个性化需求？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "22｜自定义组件：如何满足业务的个性化需求？.html"; sourceTree = "<group>"; };
-		1A89181F29CB19C100074B0C /* 02｜Component：搭建静态页面的正确思路是什么？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "02｜Component：搭建静态页面的正确思路是什么？.html"; sourceTree = "<group>"; };
-		1A89182029CB19C100074B0C /* 12｜页面实战：如何搭建一个电商首页？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "12｜页面实战：如何搭建一个电商首页？.html"; sourceTree = "<group>"; };
-		1A89182129CB19C100074B0C /* 27｜跨端的机遇：小程序、Flutter和React Native原理对比.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "27｜跨端的机遇：小程序、Flutter和React Native原理对比.html"; sourceTree = "<group>"; };
-		1A89182229CB19C100074B0C /* 直播加餐｜七年，我的跨端实践和探索.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "直播加餐｜七年，我的跨端实践和探索.html"; sourceTree = "<group>"; };
-		1A89182329CB19C100074B0C /* 09｜Fast Refresh：提高 UI 调试效率神器.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "09｜Fast Refresh：提高 UI 调试效率神器.html"; sourceTree = "<group>"; };
-		1A89182429CB19C100074B0C /* 13｜生态：React Native Awesome.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "13｜生态：React Native Awesome.html"; sourceTree = "<group>"; };
-		1A89182529CB19C100074B0C /* 32｜Fabric：新渲染器的演进之路.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "32｜Fabric：新渲染器的演进之路.html"; sourceTree = "<group>"; };
-		1A89182629CB19C100074B0C /* 28｜追本溯源：从第一版 React Native 开始学会读懂源码.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "28｜追本溯源：从第一版 React Native 开始学会读懂源码.html"; sourceTree = "<group>"; };
-		1A89182729CB19C100074B0C /* 15｜Gesture（上）：如何实现一个拖拽动效？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "15｜Gesture（上）：如何实现一个拖拽动效？.html"; sourceTree = "<group>"; };
-		1A89182829CB19C100074B0C /* 开篇词｜为什么要选择 React Native 做你的跨端方案？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "开篇词｜为什么要选择 React Native 做你的跨端方案？.html"; sourceTree = "<group>"; };
-		1A89182929CB19C100074B0C /* 16｜Gesture（中）：如何解决单视图多手势的冲突问题？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "16｜Gesture（中）：如何解决单视图多手势的冲突问题？.html"; sourceTree = "<group>"; };
-		1A89182A29CB19C100074B0C /* 08｜List：如何实现高性能的无限列表？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "08｜List：如何实现高性能的无限列表？.html"; sourceTree = "<group>"; };
-		1A89182B29CB19C100074B0C /* 05｜Image：选择适合你的图片加载方式.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "05｜Image：选择适合你的图片加载方式.html"; sourceTree = "<group>"; };
-		1A89182C29CB19C100074B0C /* 21｜混合应用：如何从零开始集成 React Native？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "21｜混合应用：如何从零开始集成 React Native？.html"; sourceTree = "<group>"; };
-		1A89182D29CB19C100074B0C /* 01｜学习 React Native，你需要掌握哪些知识？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "01｜学习 React Native，你需要掌握哪些知识？.html"; sourceTree = "<group>"; };
-		1A89182E29CB19C100074B0C /* 总结与展望｜新架构探索之旅，马上开始.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "总结与展望｜新架构探索之旅，马上开始.html"; sourceTree = "<group>"; };
-		1A89182F29CB19C100074B0C /* 14｜Reanimated：如何让动画变得更流畅？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "14｜Reanimated：如何让动画变得更流畅？.html"; sourceTree = "<group>"; };
-		1A89183029CB19C100074B0C /* 06｜Pressable：如何实现一个体验好的点按组件？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "06｜Pressable：如何实现一个体验好的点按组件？.html"; sourceTree = "<group>"; };
-		1A89183129CB19C100074B0C /* 18｜Navigation：页面之间怎么跳转？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "18｜Navigation：页面之间怎么跳转？.html"; sourceTree = "<group>"; };
-		1A89183229CB19C100074B0C /* 24｜拆包：Metro 拆包的工作原理是什么？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "24｜拆包：Metro 拆包的工作原理是什么？.html"; sourceTree = "<group>"; };
-		1A89183329CB19C100074B0C /* 29｜弄清现状：新架构预览版究竟长什么样？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "29｜弄清现状：新架构预览版究竟长什么样？.html"; sourceTree = "<group>"; };
-		1A89183429CB19C100074B0C /* 26｜客户端优化：如何把性能提升到极致？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "26｜客户端优化：如何把性能提升到极致？.html"; sourceTree = "<group>"; };
-		1A89183529CB19C100074B0C /* 30｜JavaScript 引擎：双向通讯底层原理是什么？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "30｜JavaScript 引擎：双向通讯底层原理是什么？.html"; sourceTree = "<group>"; };
-		1A89183629CB19C100074B0C /* 19｜Redux：大型应用应该如何管理状态？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "19｜Redux：大型应用应该如何管理状态？.html"; sourceTree = "<group>"; };
-		1A89183729CB19C100074B0C /* 04｜State：如何让页面“动”起来？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "04｜State：如何让页面“动”起来？.html"; sourceTree = "<group>"; };
-		1A89183829CB19C100074B0C /* 11｜组件实战：如何实现瀑布流？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "11｜组件实战：如何实现瀑布流？.html"; sourceTree = "<group>"; };
-		1A89183929CB19C100074B0C /* 07｜TextInput：如何实现一个体验好的输入框？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "07｜TextInput：如何实现一个体验好的输入框？.html"; sourceTree = "<group>"; };
-		1A89183A29CB19C100074B0C /* 阶段测试｜React Native的这些核心知识，你都掌握了吗？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "阶段测试｜React Native的这些核心知识，你都掌握了吗？.html"; sourceTree = "<group>"; };
-		1A89183B29CB19C100074B0C /* 03｜Style：关于样式你需要知道的三件事.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "03｜Style：关于样式你需要知道的三件事.html"; sourceTree = "<group>"; };
-		1A89183C29CB19C100074B0C /* 10｜Debug：解决 BUG 思路有哪些？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "10｜Debug：解决 BUG 思路有哪些？.html"; sourceTree = "<group>"; };
-		1A89183D29CB19C100074B0C /* 17｜Gesture（下）：如何解决多视图多手势的冲突问题？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "17｜Gesture（下）：如何解决多视图多手势的冲突问题？.html"; sourceTree = "<group>"; };
-		1A89183E29CB19C100074B0C /* 25｜性能优化：如何设计一个合适的性能优化方案？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "25｜性能优化：如何设计一个合适的性能优化方案？.html"; sourceTree = "<group>"; };
-		1A89183F29CB19C100074B0C /* 20｜Sentry：线上错误与性能监控怎么处理？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "20｜Sentry：线上错误与性能监控怎么处理？.html"; sourceTree = "<group>"; };
-		1A89184029CB19C100074B0C /* 31｜多线程：RN底层是如何保障交互体验的？.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "31｜多线程：RN底层是如何保障交互体验的？.html"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-CourseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CourseApp.debug.xcconfig"; path = "Target Support Files/Pods-CourseApp/Pods-CourseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		54C7E357D8EAAC47CDABD11E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = CourseApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-CourseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CourseApp.release.xcconfig"; path = "Target Support Files/Pods-CourseApp/Pods-CourseApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-CourseApp-CourseAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CourseApp-CourseAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CourseApp-CourseAppTests/Pods-CourseApp-CourseAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-CourseApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CourseApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,125 +89,16 @@
 		13B07FAE1A68108700A75B9A /* CourseApp */ = {
 			isa = PBXGroup;
 			children = (
-				1A41EB0529EBF2D100BB6FEB /* main.jsbundle */,
-				1A8917EB29CB197700074B0C /* Supporting Files */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				1A3B6E5C29D1B29B003E38DB /* CourseApp-Bridging-Header.h */,
+				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				54C7E357D8EAAC47CDABD11E /* PrivacyInfo.xcprivacy */,
 			);
 			name = CourseApp;
-			sourceTree = "<group>";
-		};
-		1A8917EB29CB197700074B0C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1A8917EC29CB19C100074B0C /* Python核心技术与实战 */,
-				1A89181C29CB19C100074B0C /* React Native 新架构实战课 */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1A8917EC29CB19C100074B0C /* Python核心技术与实战 */ = {
-			isa = PBXGroup;
-			children = (
-				1A8917ED29CB19C100074B0C /* 20 _ 揭秘 Python 协程.html */,
-				1A8917EE29CB19C100074B0C /* 39 _ Django：搭建监控平台.html */,
-				1A8917EF29CB19C100074B0C /* 37 _ Kafka & ZMQ：自动化交易流水线.html */,
-				1A8917F029CB19C100074B0C /* 05 _ 深入浅出字符串.html */,
-				1A8917F129CB19C100074B0C /* 09 _ 不可或缺的自定义函数.html */,
-				1A8917F229CB19C100074B0C /* 28 _ 如何合理利用assert？.html */,
-				1A8917F329CB19C100074B0C /* 08 _ 异常处理：如何提高程序的稳定性？.html */,
-				1A8917F429CB19C100074B0C /* 26 _ 活都来不及干了，还有空注意代码风格？！.html */,
-				1A8917F529CB19C100074B0C /* 31 _ pdb & cProfile：调试和性能分析的法宝.html */,
-				1A8917F629CB19C100074B0C /* 03 _ 列表和元组，到底用哪一个？.html */,
-				1A8917F729CB19C100074B0C /* 开篇词 _ 从工程的角度深入理解Python.html */,
-				1A8917F829CB19C100074B0C /* 24 _ 带你解析 Python 垃圾回收机制.html */,
-				1A8917F929CB19C100074B0C /* 43 _ Q&A：聊一聊职业发展和选择.html */,
-				1A8917FA29CB19C100074B0C /* 42 _ 细数技术研发的注意事项.html */,
-				1A8917FB29CB19C100074B0C /* 40 _ 总结：Python中的数据结构与算法全景.html */,
-				1A8917FC29CB19C100074B0C /* 30 _ 真的有必要写单元测试吗？.html */,
-				1A8917FD29CB19C100074B0C /* 07 _ 修炼基本功：条件与循环.html */,
-				1A8917FE29CB19C100074B0C /* 36 _ Pandas & Numpy：策略与回测系统.html */,
-				1A8917FF29CB19C100074B0C /* 38 _ MySQL：日志和数据存储系统.html */,
-				1A89180029CB19C100074B0C /* 14 _ 答疑（一）：列表和元组的内部实现是怎样的？.html */,
-				1A89180129CB19C100074B0C /* 13 _ 搭建积木：Python 模块化.html */,
-				1A89180229CB19C100074B0C /* 06 _ Python “黑箱”：输入与输出.html */,
-				1A89180329CB19C100074B0C /* 21 _ Python并发编程之Futures.html */,
-				1A89180429CB19C100074B0C /* 29 _ 巧用上下文管理器和With语句精简代码.html */,
-				1A89180529CB19C100074B0C /* 10 _ 简约不简单的匿名函数.html */,
-				1A89180629CB19C100074B0C /* 27 _ 学会合理分解代码，提高代码可读性.html */,
-				1A89180729CB19C100074B0C /* 33 _ 带你初探量化世界.html */,
-				1A89180829CB19C100074B0C /* 结束语 _ 技术之外的几点成长建议.html */,
-				1A89180929CB19C100074B0C /* 23 _ 你真的懂Python GIL（全局解释器锁）吗？.html */,
-				1A89180A29CB19C100074B0C /* 34 _ RESTful & Socket：搭建交易执行层核心.html */,
-				1A89180B29CB19C100074B0C /* 02 _ Jupyter Notebook为什么是现代Python的必学技术？.html */,
-				1A89180C29CB19C100074B0C /* 32 _ 答疑（三）：如何选择合适的异常处理方式？.html */,
-				1A89180D29CB19C100074B0C /* 加餐 _ 带你上手SWIG：一份清晰好用的SWIG编程实践指南.html */,
-				1A89180E29CB19C100074B0C /* 18 _ metaclass，是潘多拉魔盒还是阿拉丁神灯？.html */,
-				1A89180F29CB19C100074B0C /* 04 _ 字典、集合，你真的了解吗？.html */,
-				1A89181029CB19C100074B0C /* 15 _ Python对象的比较、拷贝.html */,
-				1A89181129CB19C100074B0C /* 19 _ 深入理解迭代器和生成器.html */,
-				1A89181229CB19C100074B0C /* 12 _ 面向对象（下）：如何实现一个搜索引擎？.html */,
-				1A89181329CB19C100074B0C /* 11 _ 面向对象（上）：从生活中的类比说起.html */,
-				1A89181429CB19C100074B0C /* 22 _ 并发编程之Asyncio.html */,
-				1A89181529CB19C100074B0C /* 结课测试 _ 关于Python的这些知识，你都掌握了吗？.html */,
-				1A89181629CB19C100074B0C /* 17 _ 强大的装饰器.html */,
-				1A89181729CB19C100074B0C /* 41 _ 硅谷一线互联网公司的工作体验.html */,
-				1A89181829CB19C100074B0C /* 16 _ 值传递，引用传递or其他，Python里参数是如何传递的？.html */,
-				1A89181929CB19C100074B0C /* 35 _ RESTful & Socket：行情数据对接和抓取.html */,
-				1A89181A29CB19C100074B0C /* 01 _ 如何逐步突破，成为Python高手？.html */,
-				1A89181B29CB19C100074B0C /* 25 _ 答疑（二）：GIL与多线程是什么关系呢？.html */,
-			);
-			name = "Python核心技术与实战";
-			path = "../../IT课程/Python核心技术与实战";
-			sourceTree = "<group>";
-		};
-		1A89181C29CB19C100074B0C /* React Native 新架构实战课 */ = {
-			isa = PBXGroup;
-			children = (
-				1A89181D29CB19C100074B0C /* 23｜热更新：如何搭建一个热更新平台？.html */,
-				1A89181E29CB19C100074B0C /* 22｜自定义组件：如何满足业务的个性化需求？.html */,
-				1A89181F29CB19C100074B0C /* 02｜Component：搭建静态页面的正确思路是什么？.html */,
-				1A89182029CB19C100074B0C /* 12｜页面实战：如何搭建一个电商首页？.html */,
-				1A89182129CB19C100074B0C /* 27｜跨端的机遇：小程序、Flutter和React Native原理对比.html */,
-				1A89182229CB19C100074B0C /* 直播加餐｜七年，我的跨端实践和探索.html */,
-				1A89182329CB19C100074B0C /* 09｜Fast Refresh：提高 UI 调试效率神器.html */,
-				1A89182429CB19C100074B0C /* 13｜生态：React Native Awesome.html */,
-				1A89182529CB19C100074B0C /* 32｜Fabric：新渲染器的演进之路.html */,
-				1A89182629CB19C100074B0C /* 28｜追本溯源：从第一版 React Native 开始学会读懂源码.html */,
-				1A89182729CB19C100074B0C /* 15｜Gesture（上）：如何实现一个拖拽动效？.html */,
-				1A89182829CB19C100074B0C /* 开篇词｜为什么要选择 React Native 做你的跨端方案？.html */,
-				1A89182929CB19C100074B0C /* 16｜Gesture（中）：如何解决单视图多手势的冲突问题？.html */,
-				1A89182A29CB19C100074B0C /* 08｜List：如何实现高性能的无限列表？.html */,
-				1A89182B29CB19C100074B0C /* 05｜Image：选择适合你的图片加载方式.html */,
-				1A89182C29CB19C100074B0C /* 21｜混合应用：如何从零开始集成 React Native？.html */,
-				1A89182D29CB19C100074B0C /* 01｜学习 React Native，你需要掌握哪些知识？.html */,
-				1A89182E29CB19C100074B0C /* 总结与展望｜新架构探索之旅，马上开始.html */,
-				1A89182F29CB19C100074B0C /* 14｜Reanimated：如何让动画变得更流畅？.html */,
-				1A89183029CB19C100074B0C /* 06｜Pressable：如何实现一个体验好的点按组件？.html */,
-				1A89183129CB19C100074B0C /* 18｜Navigation：页面之间怎么跳转？.html */,
-				1A89183229CB19C100074B0C /* 24｜拆包：Metro 拆包的工作原理是什么？.html */,
-				1A89183329CB19C100074B0C /* 29｜弄清现状：新架构预览版究竟长什么样？.html */,
-				1A89183429CB19C100074B0C /* 26｜客户端优化：如何把性能提升到极致？.html */,
-				1A89183529CB19C100074B0C /* 30｜JavaScript 引擎：双向通讯底层原理是什么？.html */,
-				1A89183629CB19C100074B0C /* 19｜Redux：大型应用应该如何管理状态？.html */,
-				1A89183729CB19C100074B0C /* 04｜State：如何让页面“动”起来？.html */,
-				1A89183829CB19C100074B0C /* 11｜组件实战：如何实现瀑布流？.html */,
-				1A89183929CB19C100074B0C /* 07｜TextInput：如何实现一个体验好的输入框？.html */,
-				1A89183A29CB19C100074B0C /* 阶段测试｜React Native的这些核心知识，你都掌握了吗？.html */,
-				1A89183B29CB19C100074B0C /* 03｜Style：关于样式你需要知道的三件事.html */,
-				1A89183C29CB19C100074B0C /* 10｜Debug：解决 BUG 思路有哪些？.html */,
-				1A89183D29CB19C100074B0C /* 17｜Gesture（下）：如何解决多视图多手势的冲突问题？.html */,
-				1A89183E29CB19C100074B0C /* 25｜性能优化：如何设计一个合适的性能优化方案？.html */,
-				1A89183F29CB19C100074B0C /* 20｜Sentry：线上错误与性能监控怎么处理？.html */,
-				1A89184029CB19C100074B0C /* 31｜多线程：RN底层是如何保障交互体验的？.html */,
-			);
-			name = "React Native 新架构实战课";
-			path = "../../IT课程/React Native 新架构实战课";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -371,7 +182,6 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CourseApp" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
-				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
@@ -401,7 +211,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1420;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -436,6 +246,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				19B2B29A0485CB27C324B7D7 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +269,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
 		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -570,25 +383,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CourseApp-CourseAppTests/Pods-CourseApp-CourseAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD10A7F022414F080027D42C /* Start Packager */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Start Packager";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -630,7 +424,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CourseAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,7 +448,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CourseAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,10 +485,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CourseApp;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.belighten.CourseApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.belighten.CourseApp;
 				PRODUCT_NAME = CourseApp;
-				SWIFT_OBJC_BRIDGING_HEADER = "CourseApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -720,10 +512,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CourseApp;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.belighten.CourseApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.belighten.CourseApp;
 				PRODUCT_NAME = CourseApp;
-				SWIFT_OBJC_BRIDGING_HEADER = "CourseApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -733,8 +523,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -760,9 +551,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -778,7 +570,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -795,9 +589,16 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -805,8 +606,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -832,9 +634,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -843,7 +646,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -859,9 +664,16 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
