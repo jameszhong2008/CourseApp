@@ -1,6 +1,10 @@
+### 
+使用 geek_crawler 项目下载 geek时间 课程，保存在应用存储中， 即可下载读取， 包含音频。
+课程资料，仅供学习研究
+
 ### 使用 node 18
 
-### 安装依赖
+### 安装依赖。
 
 1. yarn
 2. yarn add react-native-track-player
