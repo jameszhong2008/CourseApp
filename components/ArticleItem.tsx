@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect, useState} from 'react';
 import {useHookstate} from '@hookstate/core';
 import {uiState} from '../state/ui-state';
+import AudioManager from '../common/article_oper';
 
 export default ({
   course,
@@ -26,15 +27,12 @@ export default ({
 
   const [progress, setProgress] = useState(0);
 
-  const updatePrgress = () => {
-    let progress = 0;
-    const key = `article_prog_${course.trim()}_${article.name.trim()}`;
-    AsyncStorage.getItem(key).then(val => {
-      if (typeof val === 'string' && val) {
-        progress = parseFloat(val) * 100;
-      }
-      setProgress(progress);
-    });
+  const updatePrgress = async () => {
+    let progress = await AudioManager.getInstance().getProgress(
+      course.trim(),
+      article.name.trim(),
+    );
+    setProgress(progress * 100);
   };
 
   useEffect(() => {
@@ -48,13 +46,28 @@ export default ({
     state.updateArticleProgress.set('');
   }, [state.updateArticleProgress.value]);
 
+  const progressColor =
+    progress >= 99.5 ? 'rgba(169, 239, 169, .5)' : 'rgba(169, 169, 239, .5)';
+  const lineHeight = 30;
   return (
     <TouchableOpacity
       onPress={() => onPress(article)}
       style={{paddingVertical: 2}}>
-      <View>
-        <View style={[styles.progressBox, {width: `${progress}%`}]} />
-        <Text style={[styles.textDark]}>{article.name}</Text>
+      <View
+        style={{
+          height: lineHeight,
+        }}>
+        <Text style={[styles.textDark, {lineHeight}]}>{article.name}</Text>
+        <View
+          style={[
+            styles.progressBox,
+            {
+              top: 0,
+              width: `${progress}%`,
+              backgroundColor: `${progressColor}`,
+            },
+          ]}
+        />
       </View>
     </TouchableOpacity>
   );
@@ -64,9 +77,10 @@ const styles = StyleSheet.create({
   progressBox: {
     position: 'absolute',
     height: '100%',
-    backgroundColor: 'rgba(169, 169, 239, .5)',
   },
   textDark: {
     color: '#000000',
+    fontSize: 16,
+    lineHeight: 30,
   },
 });

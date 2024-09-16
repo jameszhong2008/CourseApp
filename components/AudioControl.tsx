@@ -74,21 +74,36 @@ export default () => {
     state.control.module.set('base');
   };
 
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState<{
+    content?: string;
+    progressInfo?: {
+      course: string;
+      article: string;
+      progress: number;
+    };
+  }>({});
   const onOpenArticle = () => {
-    if (content) {
+    if (content.content) {
       // 设置为空
-      setContent('');
+      setContent({});
       return;
     }
     let index = state.audio.index.value;
     if (index > -1 && index < state.course.articles.value.length) {
       loadArticle(state.course.articles.value[index], index)
         .then(result => {
-          setContent((result as any).source);
+          setContent({
+            content: (result as any).source,
+            progressInfo: {
+              course: state.course.name.value,
+              article: state.audio.title.value,
+              progress:
+                state.audio.position.value / (state.audio.duration.value || 1),
+            },
+          });
         })
         .catch(err => {
-          setContent('');
+          setContent({});
         });
     }
   };
@@ -127,8 +142,13 @@ export default () => {
         <Button title="文章" onPress={onOpenArticle}></Button>
       </View>
       <Text style={styles.textDark}>{state.audio.title.value}</Text>
-      {content && <ArticleView html={content} />}
-      {!content && (
+      {content.content && (
+        <ArticleView
+          html={content.content}
+          progressInfo={content.progressInfo}
+        />
+      )}
+      {!content.content && (
         <Image
           // https://github.com/idrisssakhi/photoGallery
           source={AudioManager.getInstance().artwork as any}

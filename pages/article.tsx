@@ -34,16 +34,35 @@ const Article: React.FC<ArticleProps> = ({title, route}) => {
   const isDarkMode = useColorScheme() === 'dark';
   title = article.name;
 
-  const [content, setContent] = useState<string>('');
+  const [content, setContent] = useState<{
+    content?: string;
+    progressInfo?: {
+      course: string;
+      article: string;
+      progress: number;
+    };
+  }>({});
 
+  const course = AudioManager.getInstance().course_name;
   useEffect(() => {
-    loadArticle(article, index)
-      .then(result => {
-        setContent(result.source);
-      })
-      .catch(err => {
-        setContent('');
+    AudioManager.getInstance()
+      .getProgress(course.trim(), article.name.trim())
+      .then(progress => {
+        loadArticle(article, index, false, {
+          type: 'percent',
+          value: progress,
+        })
+          .then(result => {
+            setContent({
+              content: result.source,
+              progressInfo: {course, article: article.name, progress},
+            });
+          })
+          .catch(err => {
+            setContent({});
+          });
       });
+
     return () => {
       // 记录进度
       AudioManager.getInstance().recordProgress();
@@ -61,7 +80,7 @@ const Article: React.FC<ArticleProps> = ({title, route}) => {
         ]}>
         {title}
       </Text>
-      <ArticleView html={content} />
+      <ArticleView html={content.content} progressInfo={content.progressInfo} />
     </View>
   );
 };

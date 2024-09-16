@@ -44,11 +44,26 @@ export default ({course, onPress}: {course: string; onPress: () => void}) => {
     updatePrgress();
   }, []);
 
+  const progressColor =
+    progress >= 99.5 ? 'rgba(169, 239, 169, .5)' : 'rgba(169, 169, 239, .5)';
+  const lineHeight = 30;
   return (
     <TouchableOpacity onPress={() => onPress()} style={{paddingVertical: 2}}>
-      <View>
-        <View style={[styles.progressBox, {width: `${progress}%`}]} />
-        <Text style={[styles.textDark]}>{course}</Text>
+      <View
+        style={{
+          height: lineHeight,
+        }}>
+        <Text style={[styles.textDark, {lineHeight}]}>{course}</Text>
+        <View
+          style={[
+            styles.progressBox,
+            {
+              top: 0,
+              width: `${progress}%`,
+              backgroundColor: `${progressColor}`,
+            },
+          ]}
+        />
       </View>
     </TouchableOpacity>
   );
@@ -58,9 +73,9 @@ const styles = StyleSheet.create({
   progressBox: {
     position: 'absolute',
     height: '100%',
-    backgroundColor: 'rgba(169, 169, 239, .5)',
   },
   textDark: {
     color: '#000000',
+    fontSize: 16,
   },
 });

@@ -13,12 +13,11 @@ export const loadArticle = (
   article: FileInfo,
   index: number,
   onlyLoad: boolean = false,
-  seek?: number,
+  seek?: {type: 'position' | 'percent'; value: number},
 ) => {
   return new Promise((resolve, reject) => {
     readAbsFile(article.path)
       .then(async result => {
-        console.log('sss');
         // 记录进度
         await AudioManager.getInstance().recordProgress();
 
@@ -114,18 +113,22 @@ export default class AudioManager implements IAudioPlayerDelegate {
       const course = JSON.parse(courseStr) as CourseInfo;
       this.setCourse(course.name, course.path, course.articles);
       if (idx > -1 && idx < course.articles.length) {
-        loadArticle(course.articles[idx], idx, true, seek);
+        loadArticle(course.articles[idx], idx, true, {
+          type: 'position',
+          value: seek,
+        });
       }
     } catch (err) {}
   }
 
   async onFinishPlaying() {
+    // 记录进度
+    await this.recordProgress();
+
     if (this.index < this.articles.length - 1) {
       let article = this.articles[this.index + 1];
       loadArticle(article, this.index + 1, false);
     } else {
-      // 记录进度
-      await this.recordProgress();
       // 结束循环播放
       this.setState(null);
     }
@@ -141,9 +144,8 @@ export default class AudioManager implements IAudioPlayerDelegate {
   async onPlayerStateChange(e: PlaybackStateEvent) {
     this.setState(e.state === State.Playing ? 'playing' : 'pause');
 
-    if (e.state === State.Playing) {
+    if (e.state === State.Ready) {
       const du = await this.audioPlayer.getDuration();
-      console.log('duration', du);
       uiState.audio.duration.set(du);
     }
   }
@@ -180,6 +182,22 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   /**
+   *
+   * @param course
+   * @param article
+   * @returns
+   */
+  async getProgress(course: string, article: string) {
+    const key = `article_prog_${course.trim()}_${article.trim()}`;
+    const val = await AsyncStorage.getItem(key);
+    let progress = 0;
+    if (typeof val === 'string' && val) {
+      progress = parseFloat(val);
+    }
+    return progress;
+  }
+
+  /**
    * 记录课程和文章播放进度
    */
   async recordProgress() {
@@ -194,23 +212,31 @@ export default class AudioManager implements IAudioPlayerDelegate {
   async recordArticleProgress() {
     if (!this.pre_course.name || !this.title) return;
 
-    const key = `article_prog_${this.pre_course.name.trim()}_${this.title.trim()}`;
-
     const duration = await this.getDuration();
     const position = await this.getPosition();
 
+    const progress = `${(position / (duration || 1)).toFixed(3)}`;
+    this.setProgress(this.pre_course.name, this.title, progress, true);
+  }
+
+  async setProgress(
+    course: string,
+    article: string,
+    progress: string,
+    checkFinish: boolean,
+  ) {
+    const key = `article_prog_${course.trim()}_${article.trim()}`;
     const value = await AsyncStorage.getItem(key);
-    if (typeof value === 'string' && parseFloat(value) > 0.999) {
+    if (checkFinish && typeof value === 'string' && parseFloat(value) > 0.999) {
       // 已经听完， 不再记录
       return;
     }
 
-    const progress = `${(position / (duration || 1)).toFixed(3)}`;
     AsyncStorage.setItem(key, progress, error => {
       error && console.log(error.toString());
     });
-    console.log('article prog', `${key} ${progress}`);
-    // 更新界面
+
+    // 更新当前文章界面
     uiState.updateArticleProgress.set(key);
   }
 
@@ -224,7 +250,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
     const key = `course_prog_${this.pre_course.name.trim()}`;
 
     const value = await AsyncStorage.getItem(key);
-    if (typeof value === 'string' && parseFloat(value) > 0.999) {
+    if (typeof value === 'string' && parseFloat(value) > 0.995) {
       // 已经听完， 不再记录
       return;
     }
@@ -246,7 +272,6 @@ export default class AudioManager implements IAudioPlayerDelegate {
     });
     // 更新界面
     uiState.updateArticleProgress.set(key);
-    console.log('course prog', `${key} ${progress}`);
   }
 
   /**
@@ -265,7 +290,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
     url: string,
     index: number,
     onlyLoad: boolean,
-    seek?: number,
+    seek?: {type: 'position' | 'percent'; value: number},
   ) {
     if (this.url === url) return;
 

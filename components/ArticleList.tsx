@@ -35,8 +35,12 @@ export default () => {
       <ArticleScrollView
         course={state.course.name.value}
         articles={articles}
-        onPress={(v, index) => {
-          loadArticle(v, index);
+        onPress={async (v, index) => {
+          let progress = await AudioManager.getInstance().getProgress(
+            state.course.name.trim(),
+            v.name.trim(),
+          );
+          loadArticle(v, index, false, {type: 'percent', value: progress});
         }}
       />
       <TouchableOpacity

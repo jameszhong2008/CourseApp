@@ -5,6 +5,7 @@ import TrackPlayer, {
   PlaybackProgressUpdatedEvent,
   RepeatMode,
   PlaybackStateEvent,
+  State,
 } from 'react-native-track-player';
 import {PlaybackService} from './playback_service';
 
@@ -66,13 +67,27 @@ export class AudioPlayer {
     });
   }
 
+  getReady() {
+    return new Promise(resolve => {
+      TrackPlayer.getState().then(state => {
+        if (state === State.Ready) {
+          resolve(true);
+        } else {
+          setTimeout(() => {
+            this.getReady().then(resolve);
+          }, 100);
+        }
+      });
+    });
+  }
+
   async playUrl(
     artist: string,
     title: string,
     url: string,
     onlyLoad: boolean,
     artwork: string | {url: string},
-    seek?: number,
+    seek?: {type: 'position' | 'percent'; value: number},
   ) {
     // SoundPlayer.playUrl(url);
     this.disableFinish = true;
@@ -89,7 +104,10 @@ export class AudioPlayer {
       artwork,
     });
     if (seek) {
-      await TrackPlayer.seekTo(seek);
+      await this.getReady();
+      const du = await this.getDuration();
+      const position = seek.type === 'position' ? seek.value : du * seek.value;
+      await TrackPlayer.seekTo(Math.max(0, position - 5));
     }
     if (!onlyLoad) {
       await TrackPlayer.play();
@@ -125,7 +143,6 @@ export class AudioPlayer {
   }
 
   async getPosition() {
-    // return (await SoundPlayer.getInfo()).currentTime;
     return TrackPlayer.getPosition();
   }
 

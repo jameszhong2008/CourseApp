@@ -1,6 +1,7 @@
-import {StyleSheet, useColorScheme, View, Text} from 'react-native';
+import {StyleSheet, useColorScheme, View, Text, Button} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {useCallback, useEffect, useState} from 'react';
+import AudioManager from '../common/article_oper';
 
 // 禁止页面缩放
 // <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
@@ -19,12 +20,27 @@ const htmlHead = `<!DOCTYPE html>
 <body>`;
 const htmlEnd = `</body>`;
 
-export default (props: {html: string}) => {
+export default (props: {
+  html: string;
+  progressInfo?: {
+    course: string;
+    article: string;
+    progress: number;
+  };
+}) => {
   const [content, setContent] = useState('');
   useEffect(() => {
     if (props.html) setContent(htmlHead + props.html + htmlEnd);
     else setContent('<p>打开文件失败<p/>');
   }, [props.html]);
+
+  let progressInfo = props.progressInfo;
+  const [btnText, setBtnText] = useState('');
+  useEffect(() => {
+    if (progressInfo) {
+      setBtnText(progressInfo.progress >= 0.995 ? '重新读' : '标记完成');
+    }
+  }, [props.progressInfo?.progress]);
 
   const INJECTED_JAVASCRIPT = `(function(){
 
@@ -54,6 +70,18 @@ export default (props: {html: string}) => {
 
    })();`;
 
+  const handleFinishArticle = () => {
+    if (!progressInfo) return;
+    alert(btnText);
+    AudioManager.getInstance().setProgress(
+      progressInfo.course,
+      progressInfo.article,
+      btnText === '重新读' ? '0' : '1',
+      false,
+    );
+    setBtnText(btnText === '重新读' ? '标记完成' : '重新读');
+  };
+
   return (
     <View style={styles.sectionContainer}>
       <WebView
@@ -74,6 +102,21 @@ export default (props: {html: string}) => {
           } */
         }}
       />
+      {btnText && (
+        <View
+          style={{
+            marginTop: 20,
+            position: 'absolute',
+            bottom: 50,
+            right: 10,
+            backgroundColor: 'rgb(169, 239, 169)',
+          }}>
+          <Button
+            title={btnText}
+            color="white"
+            onPress={handleFinishArticle}></Button>
+        </View>
+      )}
     </View>
   );
 };

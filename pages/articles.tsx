@@ -55,17 +55,21 @@ export default (props: {
         ]}>
         {name}
       </Text>
-      <ArticleScrollView course={name} articles={articles} onPress={(v, index) => {
-        AudioManager.getInstance().setCourse(name, path, articles);
-        props.navigation.navigate('Article', {
-          index,
-          article: {
-            name: v.name,
-            path: v.path,
-            /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
-          },
-        });
-      }}/>
+      <ArticleScrollView
+        course={name}
+        articles={articles}
+        onPress={(v, index) => {
+          AudioManager.getInstance().setCourse(name, path, articles);
+          props.navigation.navigate('Article', {
+            index,
+            article: {
+              name: v.name,
+              path: v.path,
+              /* ctime: v.ctime, mtime: v.mtime, */ size: v.size,
+            },
+          });
+        }}
+      />
     </View>
   );
 };
