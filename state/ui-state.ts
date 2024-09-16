@@ -5,7 +5,14 @@ export type AudioState = 'playing' | 'pause' | null;
 export type ControlState = 'audio' | 'list' | 'base';
 export const uiState = hookstate<{
   course: {name: string; articles: FileInfo[]};
-  audio: {title: string; state: AudioState; index: number; rate: number};
+  audio: {
+    title: string;
+    state: AudioState;
+    index: number;
+    rate: number;
+    duration: number;
+    position: number;
+  };
   control: {module: ControlState};
   updateCourseProgress: string;
   updateArticleProgress: string;
@@ -13,7 +20,7 @@ export const uiState = hookstate<{
   /**
    * 当前音频
    */
-  audio: {title: '', state: null, index: -1, rate: 1},
+  audio: {title: '', state: null, index: -1, rate: 1, duration: 0, position: 0},
   /**
    * 当前课程
    */

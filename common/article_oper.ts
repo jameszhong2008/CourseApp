@@ -134,11 +134,18 @@ export default class AudioManager implements IAudioPlayerDelegate {
   onPositionUpdated(position: number): void {
     AsyncStorage.setItem('articleSeek', `${position}`, error => {
       error && console.log(error.toString());
+      uiState.audio.position.set(position);
     });
   }
 
-  onPlayerStateChange(e: PlaybackStateEvent) {
+  async onPlayerStateChange(e: PlaybackStateEvent) {
     this.setState(e.state === State.Playing ? 'playing' : 'pause');
+
+    if (e.state === State.Playing) {
+      const du = await this.audioPlayer.getDuration();
+      console.log('duration', du);
+      uiState.audio.duration.set(du);
+    }
   }
 
   setState(state: AudioState) {

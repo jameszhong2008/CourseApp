@@ -39,8 +39,6 @@ const rateList = [
 export default () => {
   const isDarkMode = useColorScheme() === 'dark';
   const state = useHookstate(uiState);
-  const [duration, setDuration] = useState(0);
-  const [position, setPosition] = useState(0);
   const prevArticle = () => {
     let current = state.audio.index.value;
     let index = current - 1;
@@ -67,18 +65,8 @@ export default () => {
     AudioManager.getInstance().seekAudio(value);
   };
 
-  useEffect(() => {
-    setTimeout(async () => {
-      setDuration(await AudioManager.getInstance().getDuration());
-      setPosition(await AudioManager.getInstance().getPosition());
-    }, 0);
-    let timer = setInterval(async () => {
-      setPosition(await AudioManager.getInstance().getPosition());
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  const duration = state.audio.duration.value;
+  const position = state.audio.position.value;
 
   const minimumControl = () => {
     // 记录进度
