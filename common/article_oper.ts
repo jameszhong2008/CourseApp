@@ -7,6 +7,7 @@ import {AudioPlayer, IAudioPlayerDelegate} from './audio_player';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AlbumOper} from './album_oper';
 import {Platform} from 'react-native';
+import {PlaybackStateEvent, State} from 'react-native-track-player';
 
 export const loadArticle = (
   article: FileInfo,
@@ -17,6 +18,7 @@ export const loadArticle = (
   return new Promise((resolve, reject) => {
     readAbsFile(article.path)
       .then(async result => {
+        console.log('sss');
         // 记录进度
         await AudioManager.getInstance().recordProgress();
 
@@ -29,7 +31,6 @@ export const loadArticle = (
           onlyLoad,
           seek,
         );
-        console.log('play next', index, article.name);
         resolve({source, url});
       })
       .catch(err => {
@@ -136,6 +137,10 @@ export default class AudioManager implements IAudioPlayerDelegate {
     });
   }
 
+  onPlayerStateChange(e: PlaybackStateEvent) {
+    this.setState(e.state === State.Playing ? 'playing' : 'pause');
+  }
+
   setState(state: AudioState) {
     this._state = state;
     uiState.audio.state.set(state);
@@ -197,6 +202,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
     AsyncStorage.setItem(key, progress, error => {
       error && console.log(error.toString());
     });
+    console.log('article prog', `${key} ${progress}`);
     // 更新界面
     uiState.updateArticleProgress.set(key);
   }
@@ -233,6 +239,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
     });
     // 更新界面
     uiState.updateArticleProgress.set(key);
+    console.log('course prog', `${key} ${progress}`);
   }
 
   /**

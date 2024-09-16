@@ -9,6 +9,9 @@
 
 1. yarn start
 2. yarn android / ios
+   1. 编译 提示 Successfully built the app，此时已经成功安装 app 到设备上
+   2. 在 iPhone 上运行 app
+   3. 在 VSCode 中编写代码， 会实时更新到设备上，类似 Vue/React 的开发体验
 
 ### 已知问题
 
@@ -44,3 +47,8 @@ cd ios && pod install
 ### Xcode Error PhaseScriptExecution failed with a nonzero exit code
 
 https://stackoverflow.com/questions/75975043/xcode-error-phasescriptexecution-failed-with-a-nonzero-exit-code
+
+### iOS 编译报错提示
+
+bundle exec pod install
+https://tingyishih.medium.com/why-bundle-exec-whats-the-difference-ae7ba488a324

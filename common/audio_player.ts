@@ -3,6 +3,8 @@ import TrackPlayer, {
   Event,
   Capability,
   PlaybackProgressUpdatedEvent,
+  RepeatMode,
+  PlaybackStateEvent,
 } from 'react-native-track-player';
 import {PlaybackService} from './playback_service';
 
@@ -10,6 +12,7 @@ export interface IAudioPlayerDelegate {
   onPlayerReady(): void;
   onFinishPlaying(): void;
   onPositionUpdated(position: number): void;
+  onPlayerStateChange(e: PlaybackStateEvent): void;
 }
 
 export class AudioPlayer {
@@ -23,6 +26,7 @@ export class AudioPlayer {
     }); */
     // background模式时也可以继续工作
     TrackPlayer.registerPlaybackService(() => PlaybackService);
+    TrackPlayer.setRepeatMode(RepeatMode.Off);
     // 设置Player
     TrackPlayer.setupPlayer().then(_ => {
       TrackPlayer.addEventListener(Event.PlaybackQueueEnded, () => {
@@ -33,6 +37,12 @@ export class AudioPlayer {
         Event.PlaybackProgressUpdated,
         (e: PlaybackProgressUpdatedEvent) => {
           delegate.onPositionUpdated(e.position);
+        },
+      );
+      TrackPlayer.addEventListener(
+        Event.PlaybackState,
+        (e: PlaybackStateEvent) => {
+          delegate.onPlayerStateChange(e);
         },
       );
       delegate.onPlayerReady();
@@ -84,9 +94,11 @@ export class AudioPlayer {
     if (!onlyLoad) {
       await TrackPlayer.play();
     }
+
     // 确保音频已打开， 获取下长度
+    // 这时候获取不到长度， 需等到状态为 connecting 之后才行
     const duration = await this.getDuration();
-    if (duration <= 0) return;
+    // if (duration <= 0) return;
 
     // 完成播放自动切换下条音频
     this.disableFinish = false;
@@ -108,8 +120,8 @@ export class AudioPlayer {
   }
 
   async getDuration() {
-    // return (await SoundPlayer.getInfo()).duration;
-    return TrackPlayer.getDuration();
+    const du = await TrackPlayer.getDuration();
+    return du;
   }
 
   async getPosition() {
