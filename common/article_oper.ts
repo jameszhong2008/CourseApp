@@ -7,7 +7,11 @@ import {AudioPlayer, IAudioPlayerDelegate} from './audio_player';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AlbumOper} from './album_oper';
 import {Platform} from 'react-native';
-import {PlaybackStateEvent, State} from 'react-native-track-player';
+import {
+  PlaybackStateEvent,
+  RemoteSeekEvent,
+  State,
+} from 'react-native-track-player';
 
 export const loadArticle = (
   article: FileInfo,
@@ -22,7 +26,7 @@ export const loadArticle = (
         await AudioManager.getInstance().recordProgress();
 
         const {source, url} = getSourceAudioUrl(result);
-        AudioManager.getInstance().playAudio(
+        await AudioManager.getInstance().playAudio(
           article.name,
           article.path,
           url,
@@ -30,6 +34,8 @@ export const loadArticle = (
           onlyLoad,
           seek,
         );
+        // 记录新文章的播放进度
+        await AudioManager.getInstance().recordProgress();
         resolve({source, url});
       })
       .catch(err => {
@@ -150,6 +156,24 @@ export default class AudioManager implements IAudioPlayerDelegate {
     }
   }
 
+  onRemotePrev() {
+    let current = uiState.audio.index.value;
+    let index = current - 1;
+    if (index > -1) {
+      loadArticle(uiState.course.articles.value[index], index);
+    }
+  }
+  onRemoteNext() {
+    let current = uiState.audio.index.value;
+    let index = current + 1;
+    if (index < uiState.course.articles.value.length) {
+      loadArticle(uiState.course.articles.value[index], index);
+    }
+  }
+  onRemoteSeek(e: RemoteSeekEvent) {
+    AudioManager.getInstance().seekAudio(e.position);
+  }
+
   setState(state: AudioState) {
     this._state = state;
     uiState.audio.state.set(state);
@@ -219,13 +243,23 @@ export default class AudioManager implements IAudioPlayerDelegate {
     this.setProgress(this.pre_course.name, this.title, progress, true);
   }
 
+  /**
+   *
+   * @param course
+   * @param article
+   * @returns
+   */
+  getArticleKey(course: string, article: string) {
+    return `article_prog_${course.trim()}_${article.trim()}`;
+  }
+
   async setProgress(
     course: string,
     article: string,
     progress: string,
     checkFinish: boolean,
   ) {
-    const key = `article_prog_${course.trim()}_${article.trim()}`;
+    const key = this.getArticleKey(course, article);
     const value = await AsyncStorage.getItem(key);
     if (checkFinish && typeof value === 'string' && parseFloat(value) > 0.999) {
       // 已经听完， 不再记录
@@ -238,6 +272,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
 
     // 更新当前文章界面
     uiState.updateArticleProgress.set(key);
+    console.log('setProKyysss', key);
   }
 
   /**
@@ -271,7 +306,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
       error && console.log(error.toString());
     });
     // 更新界面
-    uiState.updateArticleProgress.set(key);
+    uiState.updateCourseProgress.set(key);
   }
 
   /**

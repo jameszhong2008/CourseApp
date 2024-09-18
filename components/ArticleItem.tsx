@@ -26,6 +26,7 @@ export default ({
   const state = useHookstate(uiState);
 
   const [progress, setProgress] = useState(0);
+  const [needUpdate, setNeedUpdate] = useState(false);
 
   const updatePrgress = async () => {
     let progress = await AudioManager.getInstance().getProgress(
@@ -37,13 +38,17 @@ export default ({
 
   useEffect(() => {
     updatePrgress();
+    const key = AudioManager.getInstance().getArticleKey(course, article.name);
+    setNeedUpdate(state.updateArticleProgress.value === key);
   }, []);
 
   useEffect(() => {
-    const key = `article_prog_${course.trim()}_${article.name.trim()}`;
-    if (state.updateArticleProgress.value !== key) return;
-    updatePrgress();
-    state.updateArticleProgress.set('');
+    if (needUpdate) updatePrgress();
+  }, [state.audio.position.value]);
+
+  useEffect(() => {
+    const key = AudioManager.getInstance().getArticleKey(course, article.name);
+    setNeedUpdate(state.updateArticleProgress.value === key);
   }, [state.updateArticleProgress.value]);
 
   const progressColor =

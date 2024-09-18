@@ -40,18 +40,10 @@ export default () => {
   const isDarkMode = useColorScheme() === 'dark';
   const state = useHookstate(uiState);
   const prevArticle = () => {
-    let current = state.audio.index.value;
-    let index = current - 1;
-    if (index > -1) {
-      loadArticle(state.course.articles.value[index], index);
-    }
+    AudioManager.getInstance().onRemotePrev();
   };
   const nextArticle = () => {
-    let current = state.audio.index.value;
-    let index = current + 1;
-    if (index < state.course.articles.value.length) {
-      loadArticle(state.course.articles.value[index], index);
-    }
+    AudioManager.getInstance().onRemoteNext();
   };
 
   const toggleAudio = () => {

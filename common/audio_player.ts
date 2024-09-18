@@ -6,6 +6,9 @@ import TrackPlayer, {
   RepeatMode,
   PlaybackStateEvent,
   State,
+  RemoteJumpForwardEvent,
+  RemoteJumpBackwardEvent,
+  RemoteSeekEvent,
 } from 'react-native-track-player';
 import {PlaybackService} from './playback_service';
 
@@ -14,6 +17,9 @@ export interface IAudioPlayerDelegate {
   onFinishPlaying(): void;
   onPositionUpdated(position: number): void;
   onPlayerStateChange(e: PlaybackStateEvent): void;
+  onRemotePrev(): void;
+  onRemoteNext(): void;
+  onRemoteSeek(e: RemoteSeekEvent): void;
 }
 
 export class AudioPlayer {
@@ -46,6 +52,15 @@ export class AudioPlayer {
           delegate.onPlayerStateChange(e);
         },
       );
+      TrackPlayer.addEventListener(Event.RemotePrevious, () => {
+        delegate.onRemotePrev();
+      });
+      TrackPlayer.addEventListener(Event.RemoteNext, () => {
+        delegate.onRemoteNext();
+      });
+      TrackPlayer.addEventListener(Event.RemoteSeek, (e: RemoteSeekEvent) => {
+        delegate.onRemoteSeek(e);
+      });
       delegate.onPlayerReady();
     });
 
@@ -57,6 +72,7 @@ export class AudioPlayer {
         Capability.SkipToNext,
         Capability.SkipToPrevious,
         Capability.Stop,
+        Capability.SeekTo,
       ],
 
       // 更新事件间隔 2秒
