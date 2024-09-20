@@ -55,6 +55,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
   path = '';
   url: string = '';
   _state: 'playing' | 'pause' | null = null;
+  updateCnt = 0;
 
   // 课程path
   course_name = '';
@@ -92,7 +93,7 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   /**
-   * 读入当前的课程和文章
+   * 初始化 读入当前的课程和文章
    * @returns
    */
   async onPlayerReady(): Promise<void> {
@@ -128,8 +129,8 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   async onFinishPlaying() {
-    // 记录进度
-    await this.recordProgress();
+    // 记录当前文章进度为100%
+    await this.setProgress(this.course_name, this.title, '1', false);
 
     if (this.index < this.articles.length - 1) {
       let article = this.articles[this.index + 1];
@@ -145,6 +146,12 @@ export default class AudioManager implements IAudioPlayerDelegate {
       error && console.log(error.toString());
       uiState.audio.position.set(position);
     });
+    this.updateCnt++;
+
+    // 10 秒更新
+    if (!(this.updateCnt % 5)) {
+      this.recordProgress();
+    }
   }
 
   async onPlayerStateChange(e: PlaybackStateEvent) {
@@ -272,7 +279,8 @@ export default class AudioManager implements IAudioPlayerDelegate {
 
     // 更新当前文章界面
     uiState.updateArticleProgress.set(key);
-    console.log('setProKyysss', key);
+    // 更新课程进度
+    this.recordCourseProgress();
   }
 
   /**

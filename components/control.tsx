@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
   },
   textDark: {
     color: '#000000',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   textLight: {
     color: '#FFFFFF',
@@ -74,5 +76,6 @@ const styles = StyleSheet.create({
   baseList: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    padding: 10,
   },
 });

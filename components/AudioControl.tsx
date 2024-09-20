@@ -169,11 +169,13 @@ const styles = StyleSheet.create({
   },
   textDark: {
     color: '#000000',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   closeBtn: {
     paddingHorizontal: 4,
     position: 'absolute',
     bottom: 20,
-    right: 0,
+    right: 10,
   },
 });

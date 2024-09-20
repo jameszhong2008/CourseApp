@@ -43,7 +43,9 @@ export default ({
   }, []);
 
   useEffect(() => {
-    if (needUpdate) updatePrgress();
+    if (needUpdate) {
+      updatePrgress();
+    }
   }, [state.audio.position.value]);
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-// import SoundPlayer from 'react-native-sound-player';
 import TrackPlayer, {
   Event,
   Capability,
@@ -25,44 +24,41 @@ export interface IAudioPlayerDelegate {
 export class AudioPlayer {
   disableFinish = false;
   constructor(delegate: IAudioPlayerDelegate) {
-    // iOS play sound under background and Mute Mode
-    /*
-    SoundPlayer.setSpeaker(false);
-    SoundPlayer.addEventListener('FinishedPlaying', () => {
-      delegate.onFinishPlaying();
-    }); */
     // background模式时也可以继续工作
     TrackPlayer.registerPlaybackService(() => PlaybackService);
-    TrackPlayer.setRepeatMode(RepeatMode.Off);
     // 设置Player
-    TrackPlayer.setupPlayer().then(_ => {
-      TrackPlayer.addEventListener(Event.PlaybackQueueEnded, () => {
-        if (this.disableFinish) return;
-        delegate.onFinishPlaying();
+    TrackPlayer.setupPlayer()
+      .then(_ => {
+        TrackPlayer.addEventListener(Event.PlaybackQueueEnded, () => {
+          if (this.disableFinish) return;
+          delegate.onFinishPlaying();
+        });
+        TrackPlayer.addEventListener(
+          Event.PlaybackProgressUpdated,
+          (e: PlaybackProgressUpdatedEvent) => {
+            delegate.onPositionUpdated(e.position);
+          },
+        );
+        TrackPlayer.addEventListener(
+          Event.PlaybackState,
+          (e: PlaybackStateEvent) => {
+            delegate.onPlayerStateChange(e);
+          },
+        );
+        TrackPlayer.addEventListener(Event.RemotePrevious, () => {
+          delegate.onRemotePrev();
+        });
+        TrackPlayer.addEventListener(Event.RemoteNext, () => {
+          delegate.onRemoteNext();
+        });
+        TrackPlayer.addEventListener(Event.RemoteSeek, (e: RemoteSeekEvent) => {
+          delegate.onRemoteSeek(e);
+        });
+        delegate.onPlayerReady();
+      })
+      .catch(e => {
+        console.log('TrackPlayer.setupPlayer error:', e);
       });
-      TrackPlayer.addEventListener(
-        Event.PlaybackProgressUpdated,
-        (e: PlaybackProgressUpdatedEvent) => {
-          delegate.onPositionUpdated(e.position);
-        },
-      );
-      TrackPlayer.addEventListener(
-        Event.PlaybackState,
-        (e: PlaybackStateEvent) => {
-          delegate.onPlayerStateChange(e);
-        },
-      );
-      TrackPlayer.addEventListener(Event.RemotePrevious, () => {
-        delegate.onRemotePrev();
-      });
-      TrackPlayer.addEventListener(Event.RemoteNext, () => {
-        delegate.onRemoteNext();
-      });
-      TrackPlayer.addEventListener(Event.RemoteSeek, (e: RemoteSeekEvent) => {
-        delegate.onRemoteSeek(e);
-      });
-      delegate.onPlayerReady();
-    });
 
     TrackPlayer.updateOptions({
       // Media controls capabilities
@@ -76,11 +72,12 @@ export class AudioPlayer {
       ],
 
       // 更新事件间隔 2秒
-      progressUpdateEventInterval: 2,
+      progressUpdateEventInterval: 1,
 
       // Capabilities that will show up when the notification is in the compact form on Android
       compactCapabilities: [Capability.Play, Capability.Pause],
     });
+    TrackPlayer.setRepeatMode(RepeatMode.Off);
   }
 
   getReady() {
