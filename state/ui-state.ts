@@ -4,6 +4,8 @@ import {FileInfo} from '../pages/courses';
 export type AudioState = 'playing' | 'pause' | null;
 export type ControlState = 'audio' | 'list' | 'base';
 export const uiState = hookstate<{
+  filter: {type: string; state: string};
+  courseState: {name: string; progress; number}[];
   course: {name: string; articles: FileInfo[]};
   audio: {
     title: string;
@@ -17,6 +19,8 @@ export const uiState = hookstate<{
   updateCourseProgress: string;
   updateArticleProgress: string;
 }>({
+  filter: {type: '管理', state: '在学'},
+  courseState: [],
   /**
    * 当前音频
    */

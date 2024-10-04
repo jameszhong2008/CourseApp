@@ -4,12 +4,12 @@ import {
   View,
   Text,
   useColorScheme,
-  GestureResponderEvent,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect, useState} from 'react';
 import {useHookstate} from '@hookstate/core';
 import {uiState} from '../state/ui-state';
+import AudioManager from '../common/article_oper';
 
 export default ({course, onPress}: {course: string; onPress: () => void}) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -58,7 +58,6 @@ export default ({course, onPress}: {course: string; onPress: () => void}) => {
           style={[
             styles.progressBox,
             {
-              top: 0,
               width: `${progress}%`,
               backgroundColor: `${progressColor}`,
             },
@@ -73,6 +72,7 @@ const styles = StyleSheet.create({
   progressBox: {
     position: 'absolute',
     height: '100%',
+    top: 0,
   },
   textDark: {
     color: '#000000',

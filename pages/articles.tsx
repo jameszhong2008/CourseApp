@@ -1,6 +1,15 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useEffect, useState} from 'react';
-import {StyleSheet, useColorScheme, ScrollView, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  useColorScheme,
+  ScrollView,
+  View,
+  Text,
+  Alert,
+  GestureResponderEvent,
+  Button,
+} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -44,6 +53,26 @@ export default (props: {
     readDir();
   }, []);
 
+  const handleSetUnread = (e: GestureResponderEvent) => {
+    e.preventDefault();
+    Alert.alert(
+      '',
+      '确定要设置为未学吗?',
+      [
+        {
+          text: '取消',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: '确定',
+          onPress: () => AudioManager.getInstance().clearCourseProgress(course),
+        },
+      ],
+      {cancelable: false},
+    );
+  };
+
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -70,6 +99,12 @@ export default (props: {
           });
         }}
       />
+      <View style={styles.unreadButton}>
+        <Button
+          title="设为未学"
+          color="white"
+          onPress={handleSetUnread}></Button>
+      </View>
     </View>
   );
 };
@@ -78,7 +113,7 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 8,
     paddingHorizontal: 4,
-    paddingBottom: 65,
+    paddingBottom: 40,
   },
   sectionTitle: {
     fontSize: 24,
@@ -92,5 +127,12 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  unreadButton: {
+    marginTop: 20,
+    position: 'absolute',
+    bottom: 50,
+    right: 10,
+    backgroundColor: 'rgb(169, 239, 169)',
   },
 });

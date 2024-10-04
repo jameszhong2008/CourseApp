@@ -1,8 +1,11 @@
-### 
-使用 geek_crawler 项目下载 geek时间 课程，保存在应用存储中， 即可下载读取， 包含音频。
+###
+
+使用 geek_crawler 项目下载 geek 时间 课程，保存在应用存储中， 即可下载读取， 包含音频。
 课程资料，仅供学习研究
 
 ### 使用 node 18
+
+nvm use 18
 
 ### 安装依赖。
 
@@ -56,3 +59,8 @@ https://stackoverflow.com/questions/75975043/xcode-error-phasescriptexecution-fa
 
 bundle exec pod install
 https://tingyishih.medium.com/why-bundle-exec-whats-the-difference-ae7ba488a324
+
+### XCode 上去掉警告
+
+1. 在 XCode 的 schema 上设置为 release
+2. 或使用 babel-plugin-transform-remove-console

@@ -229,6 +229,22 @@ export default class AudioManager implements IAudioPlayerDelegate {
   }
 
   /**
+   *
+   * @param course
+   * @param article
+   * @returns
+   */
+  async getCourseProgress(course: string) {
+    const key = `course_prog_${course.trim()}`;
+    const val = await AsyncStorage.getItem(key);
+    let progress = 0;
+    if (typeof val === 'string' && val) {
+      progress = parseFloat(val);
+    }
+    return progress;
+  }
+
+  /**
    * 记录课程和文章播放进度
    */
   async recordProgress() {
@@ -280,27 +296,37 @@ export default class AudioManager implements IAudioPlayerDelegate {
     // 更新当前文章界面
     uiState.updateArticleProgress.set(key);
     // 更新课程进度
-    this.recordCourseProgress();
+    this.calcCourseProgress(course, checkFinish);
   }
 
   /**
    * 保存当前课程听到的位置
    * @returns
    */
-  async recordCourseProgress() {
+  async recordCourseProgress(checkFinish: boolean) {
     if (!this.pre_course.name) return;
 
-    const key = `course_prog_${this.pre_course.name.trim()}`;
+    await this.calcCourseProgress(this.pre_course.name, true);
+  }
+
+  /**
+   * 计算课程播放进度
+   * @param course
+   * @param checkFinish
+   * @returns
+   */
+  async calcCourseProgress(course: string, checkFinish: boolean) {
+    const key = `course_prog_${course.trim()}`;
 
     const value = await AsyncStorage.getItem(key);
-    if (typeof value === 'string' && parseFloat(value) > 0.995) {
+    if (checkFinish && typeof value === 'string' && parseFloat(value) > 0.995) {
       // 已经听完， 不再记录
       return;
     }
 
     let finish = 0;
     for (const v of this.pre_course.articles) {
-      const keyA = `article_prog_${this.pre_course.name.trim()}_${v.name.trim()}`;
+      const keyA = `article_prog_${course.trim()}_${v.name.trim()}`;
       const val = await AsyncStorage.getItem(keyA);
       if (typeof value === 'string' && val) {
         finish += parseFloat(val);
@@ -315,6 +341,27 @@ export default class AudioManager implements IAudioPlayerDelegate {
     });
     // 更新界面
     uiState.updateCourseProgress.set(key);
+    this.updateCourseState(course, parseFloat(progress));
+  }
+
+  /**
+   * 清除课程进度
+   * @param course
+   */
+  async clearCourseProgress(course: string) {
+    AsyncStorage.removeItem('course_prog_' + course.trim());
+    const keys = await AsyncStorage.getAllKeys();
+    keys.forEach(key => {
+      if (key.startsWith(`article_prog_${course.trim()}_`)) {
+        AsyncStorage.removeItem(key);
+      }
+    });
+    this.updateCourseState(course, 0);
+  }
+
+  updateCourseState(course: string, progress: number) {
+    // 设置课程进度
+    uiState.courseState.filter(v => v.name === course)[0]?.set(progress);
   }
 
   /**
